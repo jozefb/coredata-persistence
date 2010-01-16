@@ -47,9 +47,11 @@
 }
 
 + (DAOFactory*)factory;
+// setter for store type - defaul NSSQLiteStoreType
 + (void)setStorePath:(NSString*)storePath;
 + (void)setStoreType:(NSString*)storeType;
 + (NSString*)storePath;
++ (NSString*)storeType;
 
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
 

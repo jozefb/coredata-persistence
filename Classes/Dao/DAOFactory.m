@@ -62,6 +62,10 @@ static NSString* storeType;
 	storeType = [[NSString stringWithString:storeType] retain];
 }
 
++ (NSString*)storeType {
+	return storeType;
+}
+
 -init {
 	if (factory) {
 		[self release];
@@ -201,9 +205,12 @@ static NSString* storeType;
 	
     NSURL *storeUrl = [NSURL fileURLWithPath: storePathTmp];
 	
-	NSError *error;
+	NSError *error = nil;
+	if (storeType == nil) {
+		[DAOFactory setStoreType:NSSQLiteStoreType];
+	}
     persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
-    if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:&error]) {
+    if (![persistentStoreCoordinator addPersistentStoreWithType:[DAOFactory storeType] configuration:nil URL:storeUrl options:nil error:&error]) {
         // Handle error
 		LOG_ERROR(error);
     }    
