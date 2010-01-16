@@ -57,7 +57,8 @@
 
 //! Run before the tests (once per test case)
 - (void)setUpClass {
-	[DAOFactory setStorePath:@"test.sqlite"];
+	[DAOFactory setStorePath:@"test.sqlite"]; 
+	[DAOFactory setStoreType:NSSQLiteStoreType];
 	DAO *dao = [[DAOFactory factory] createRuntimeDAO:@"TestEntity"];
 	
 	object1 = [dao insertNewObject];
