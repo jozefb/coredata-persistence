@@ -48,6 +48,7 @@
 
 + (DAOFactory*)factory;
 + (void)setStorePath:(NSString*)storePath;
++ (void)setStoreType:(NSString*)storeType;
 + (NSString*)storePath;
 
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;

@@ -44,6 +44,7 @@
 
 static DAOFactory* factory;
 static NSString* storePath;
+static NSString* storeType;
 
 +(void)initialize {
 	factory = [[DAOFactory alloc] init];
@@ -55,6 +56,10 @@ static NSString* storePath;
 
 + (NSString*)storePath {
 	return storePath;
+}
+
++ (void)setStoreType:(NSString*)storeType {
+	storeType = [[NSString stringWithString:storeType] retain];
 }
 
 -init {
