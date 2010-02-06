@@ -51,15 +51,15 @@ static NSString* storeType;
 }
 
 + (void)setStorePath:(NSString*)path {
-	storePath = [[NSString stringWithString:path] retain];
+	storePath = [[path copy] retain];
 }
 
 + (NSString*)storePath {
 	return storePath;
 }
 
-+ (void)setStoreType:(NSString*)storeType {
-	storeType = [[NSString stringWithString:storeType] retain];
++ (void)setStoreType:(NSString*)aStoreType {
+	storeType = [[aStoreType copy] retain];
 }
 
 + (NSString*)storeType {

@@ -59,7 +59,8 @@
 - (void)setUpClass {
 	[DAOFactory setStorePath:@"test.sqlite"]; 
 	[DAOFactory setStoreType:NSSQLiteStoreType];
-	DAO *dao = [[DAOFactory factory] createRuntimeDAO:@"TestEntity"];
+	GHAssertEqualStrings(NSSQLiteStoreType, [DAOFactory storeType], @"Store type error");
+	DAO *dao = [[DAOFactory factory] createDAO:@"TestEntity"];
 	
 	object1 = [dao insertNewObject];
 	[object1 setName:@"abc"];
@@ -94,10 +95,10 @@
 
 - (void)testCreateRuntimeDAO {	
 	
-	DAO *dao = [[DAOFactory factory] createRuntimeDAO:@"TestEntity"];
+	DAO *dao = [[DAOFactory factory] createDAO:@"TestEntity"];
 	GHAssertNotNil(dao, @"Runtime dao is nil");
 	
-	DAO *dao2 = [[DAOFactory factory] createRuntimeDAO:@"TestEntity"];
+	DAO *dao2 = [[DAOFactory factory] createDAO:@"TestEntity"];
 	GHAssertNotEquals(dao, dao2, @"Runtime dao can not be same");
 	
 }
@@ -117,7 +118,7 @@
 
 - (void)testFindAllOffsetLimit {	
 	
-	DAO *dao = [[DAOFactory factory] createRuntimeDAO:@"TestEntity"];
+	DAO *dao = [[DAOFactory factory] createDAO:@"TestEntity"];
 	// bug limit and fetch offset does not work
 	NSArray *data = [dao findAll:1 limit:-1];
 	GHAssertNotNil(data, nil);
@@ -131,7 +132,7 @@
 
 - (void)testFindMaxName {	
 	
-	DAO *dao = [[DAOFactory factory] createRuntimeDAO:@"TestEntity"];
+	DAO *dao = [[DAOFactory factory] createDAO:@"TestEntity"];
 	
 	NSArray *data = [dao findAll];
 	GHAssertNotNil(data, nil);
