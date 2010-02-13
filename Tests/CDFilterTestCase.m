@@ -157,4 +157,18 @@
 	GHAssertNil(disjunction.property, nil);
 }
 
+- (void)testInValues {
+	
+	CDFilter* order = [CDFilter inValues:@"name" values:[NSArray arrayWithObject:@"Peter"]];	
+	GHAssertEquals(@"name", order.property, nil);
+	GHAssertEquals((NSUInteger)1, [order.bindValues count], nil);
+	NSArray *values = [order.bindValues objectAtIndex:0];
+	GHAssertEquals(@"Peter", [values objectAtIndex:0], nil);
+	
+	NSPredicate* predicate = [order createPredicate];
+	GHAssertNotNil(predicate, nil);
+	NSString* format = [predicate predicateFormat];
+	GHAssertEqualStrings(@"name IN {\"Peter\"}", format, nil);
+}
+
 @end

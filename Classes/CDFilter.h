@@ -81,6 +81,9 @@
 //  Creates equals filter
 +(CDFilter*)isNotNull:(NSString*)property;
 
+//  Creates "property IN values" filter
++(CDFilter*)inValues:(NSString*)property values:(NSArray*)values;
+
 -(id)initWithPropertyAndValue:(NSString*)aProperty value:(id)filterValue;
 
 

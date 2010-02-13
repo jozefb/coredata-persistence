@@ -114,6 +114,11 @@
 	return [filter autorelease];
 }
 
++(CDFilter*)inValues:(NSString*)property values:(NSArray*)values {
+	CDFilter* filter = [[CDOperatorFilter alloc] initWithPropertyAndValue:property value:values operatorType:CDFilterOperatorIn];
+	return [filter autorelease];
+}
+
 @end
 
 @implementation CDFilter (CoreData)

@@ -40,6 +40,7 @@ typedef enum _CDFilterOperatorType {
 	CDFilterOperatorLessOrEqual = 5,
 	CDFilterOperatorNotEqual = 6,
 	CDFilterOperatorLike = 7,
+	CDFilterOperatorIn = 8
 	
 } CDFilterOperatorType;
 

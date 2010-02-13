@@ -551,6 +551,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jozef Bo�ek (KZ32337Y2R)";
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/Persistence.dst;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -565,6 +566,7 @@
 					"\"$(SRCROOT)/Libraries/libGHUnitIPhoneCL3_0-0.3.14\"",
 				);
 				PRODUCT_NAME = Persistence;
+				PROVISIONING_PROFILE = "A561794A-9B0D-4825-9A5B-D00560CA7B79";
 			};
 			name = Debug;
 		};
