@@ -46,4 +46,5 @@
 #import "CDCriteriaElement.h"
 #import "CDOperatorFilter.h"
 #import "CDNullFilter.h"
+#import "CDFilterFactory.h"
 

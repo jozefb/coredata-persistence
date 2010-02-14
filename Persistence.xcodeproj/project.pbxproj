@@ -62,6 +62,10 @@
 		C92F21581038B495006B0A86 /* CDFilterTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = C92F21551038B495006B0A86 /* CDFilterTestCase.m */; };
 		C92F21591038B495006B0A86 /* CDSearchCriteriaTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = C92F21561038B495006B0A86 /* CDSearchCriteriaTestCase.m */; };
 		C92F21681038B57E006B0A86 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C92F202B1038A8B3006B0A86 /* CoreData.framework */; };
+		C97B15C611284F9B002AD48D /* CDFilterFactoryTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = C97B15C511284F9B002AD48D /* CDFilterFactoryTestCase.m */; };
+		C97B15DB11285052002AD48D /* CDFilterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = C97B15DA11285052002AD48D /* CDFilterFactory.h */; };
+		C97B15DD11285062002AD48D /* CDFilterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = C97B15DC11285062002AD48D /* CDFilterFactory.m */; };
+		C97B15DE11285062002AD48D /* CDFilterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = C97B15DC11285062002AD48D /* CDFilterFactory.m */; };
 		C9860011108A13D200900C3E /* Test.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = C9860010108A13D200900C3E /* Test.xcdatamodel */; };
 		C98BBE3E1039EB7300E63F84 /* common_defines.h in Headers */ = {isa = PBXBuildFile; fileRef = C98BBE3D1039EB7300E63F84 /* common_defines.h */; };
 		C98BBFD71039F5B200E63F84 /* DAO.h in Headers */ = {isa = PBXBuildFile; fileRef = C98BBFCD1039F5B200E63F84 /* DAO.h */; };
@@ -156,6 +160,9 @@
 		C92F21541038B495006B0A86 /* CDFilterJunctionTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFilterJunctionTestCase.m; sourceTree = "<group>"; };
 		C92F21551038B495006B0A86 /* CDFilterTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFilterTestCase.m; sourceTree = "<group>"; };
 		C92F21561038B495006B0A86 /* CDSearchCriteriaTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDSearchCriteriaTestCase.m; sourceTree = "<group>"; };
+		C97B15C511284F9B002AD48D /* CDFilterFactoryTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFilterFactoryTestCase.m; sourceTree = "<group>"; };
+		C97B15DA11285052002AD48D /* CDFilterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDFilterFactory.h; path = Classes/CDFilterFactory.h; sourceTree = "<group>"; };
+		C97B15DC11285062002AD48D /* CDFilterFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDFilterFactory.m; path = Classes/CDFilterFactory.m; sourceTree = "<group>"; };
 		C9860010108A13D200900C3E /* Test.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = Test.xcdatamodel; sourceTree = "<group>"; };
 		C98BBE3D1039EB7300E63F84 /* common_defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common_defines.h; sourceTree = "<group>"; };
 		C98BBFCD1039F5B200E63F84 /* DAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DAO.h; path = Classes/Dao/DAO.h; sourceTree = "<group>"; };
@@ -252,12 +259,13 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				C98BBFE41039F61A00E63F84 /* Dao */,
 				C9B0264E1039DA02007A11D0 /* Includes */,
+				C98BBFE41039F61A00E63F84 /* Dao */,
 				C92F1F691038A597006B0A86 /* CDCriteriaElement.m */,
 				C92F1F7B1038A597006B0A86 /* CDOrder.m */,
 				C92F1F6B1038A597006B0A86 /* CDEqualFilter.m */,
 				C92F1F6D1038A597006B0A86 /* CDFilter.m */,
+				C97B15DC11285062002AD48D /* CDFilterFactory.m */,
 				C92F1F6F1038A597006B0A86 /* CDFilterConjunction.m */,
 				C92F1F711038A597006B0A86 /* CDFilterDisjunction.m */,
 				C92F1F731038A597006B0A86 /* CDFilterJunction.m */,
@@ -329,6 +337,7 @@
 				C9113DFA109CD59500F0134B /* CDFunctionTestCase.m */,
 				C9860010108A13D200900C3E /* Test.xcdatamodel */,
 				C98BC0AE1039F9C300E63F84 /* test.sqlite */,
+				C97B15C511284F9B002AD48D /* CDFilterFactoryTestCase.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -358,6 +367,7 @@
 		C9B0264E1039DA02007A11D0 /* Includes */ = {
 			isa = PBXGroup;
 			children = (
+				C97B15DA11285052002AD48D /* CDFilterFactory.h */,
 				C98BBFCD1039F5B200E63F84 /* DAO.h */,
 				C9B0264F1039DA25007A11D0 /* Persistence.h */,
 				C92F1F671038A597006B0A86 /* CDCriteria.h */,
@@ -407,6 +417,7 @@
 				C98BBFF41039F61A00E63F84 /* RuntimeDAO.h in Headers */,
 				C9284DD41081D92C008567C6 /* CDNullFilter.h in Headers */,
 				C9AD9574109CC0B6000B71DA /* CDFunction.h in Headers */,
+				C97B15DB11285052002AD48D /* CDFilterFactory.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +520,8 @@
 				C9AD9576109CC0C2000B71DA /* CDFunction.m in Sources */,
 				C9113D74109CCB5E00F0134B /* CDProjectionTestCase.m in Sources */,
 				C9113DFB109CD59500F0134B /* CDFunctionTestCase.m in Sources */,
+				C97B15C611284F9B002AD48D /* CDFilterFactoryTestCase.m in Sources */,
+				C97B15DD11285062002AD48D /* CDFilterFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +545,7 @@
 				C98BBFF51039F61A00E63F84 /* RuntimeDAO.m in Sources */,
 				C9284DD51081D92C008567C6 /* CDNullFilter.m in Sources */,
 				C9AD9577109CC0C2000B71DA /* CDFunction.m in Sources */,
+				C97B15DE11285062002AD48D /* CDFilterFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

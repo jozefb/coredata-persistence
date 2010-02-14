@@ -1,7 +1,8 @@
 //
+//  CDFilterFactory.h
 //  Persistence
 //
-//  Created by Ing. Jozef Bozek on 29.5.2009.
+//  Created by Ing. Jozef Bozek on 14.2.2010.
 //
 //	Copyright © 2009 Grapph. All Rights Reserved.
 // 
@@ -30,81 +31,44 @@
 //	OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import "CDCriteriaElement.h"
-
+@class CDFilter;
+@class CDFilterJunction;
 @class CDFilterDisjunction;
 @class CDFilterConjunction;
 
-@protocol CDFilter <CDCriteriaElement>
 
-@property (nonatomic, readonly) CDCriteriaElement* filteredElement;
-@property (nonatomic, readonly) NSArray* bindValues;
-@property (nonatomic, readonly) NSArray* bindNames;
+@interface CDFilterFactory {
 
-@end
-
-
-@interface CDFilter : CDCriteriaElement <CDFilter> {
-
-@protected
-	id <CDCriteriaElement> _filteredElement;
-	
-	NSMutableArray* _bindValues;
-	NSMutableArray* _bindNames;
-	
 }
 
 //  Creates case sensitive like filter
-//  Deprecated - use CDFilterFactory
-+(CDFilter*)like:(NSString*)aProperty value:(NSString*)value;
-
++ (CDFilter*)like:(NSString*)aProperty value:(NSString*)value;
 //  Creates case sensitive like filter
-//  Deprecated - use CDFilterFactory
-+(CDFilter*)like:(NSString*)aProperty value:(NSString*)value caseSensitive:(BOOL)caseSensitive;
-
++ (CDFilter*)like:(NSString*)aProperty value:(NSString*)value caseSensitive:(BOOL)caseSensitive;
 //  Creates equals filter
-//  Deprecated - use CDFilterFactory
-+(CDFilter*)equals:(NSString*)aProperty value:(id)value;
-
++ (CDFilter*)equals:(NSString*)aProperty value:(id)value;
 //  Creates not equals filter
-//  Deprecated - use CDFilterFactory
-+(CDFilter*)notEquals:(NSString*)aProperty value:(id)value;
++ (CDFilter*)notEquals:(NSString*)aProperty value:(id)value;
 
 //  Creates "property < value" filter
-//  Deprecated - use CDFilterFactory
-+(CDFilter*)less:(NSString*)aProperty value:(id)value;
++ (CDFilter*)less:(NSString*)aProperty value:(id)value;
 
 //  Creates "property > value" filter
-//  Deprecated - use CDFilterFactory
-+(CDFilter*)greather:(NSString*)aProperty value:(id)value;
++ (CDFilter*)greather:(NSString*)aProperty value:(id)value;
 
-//  Creates logical OR filter for filter chaining
-//  Deprecated - use CDFilterFactory
-+(CDFilterDisjunction*)disjunction;
+// Creates logical OR filter for filter chaining
++ (CDFilterDisjunction*)disjunction;
 
-//  Creates logical AND filter for filter chaining
-//  Deprecated - use CDFilterFactory
-+(CDFilterConjunction*)conjuction;
+// Creates logical AND filter for filter chaining
++ (CDFilterConjunction*)conjuction;
 
 //  Creates equals filter
-//  Deprecated - use CDFilterFactory
-+(CDFilter*)isNull:(NSString*)property;
++ (CDFilter*)isNull:(NSString*)property;
 
 //  Creates equals filter
-//  Deprecated - use CDFilterFactory
-+(CDFilter*)isNotNull:(NSString*)property;
++ (CDFilter*)isNotNull:(NSString*)property;
 
 //  Creates "property IN values" filter
-//  Deprecated - use CDFilterFactory
-+(CDFilter*)inValues:(NSString*)property values:(NSArray*)values;
-
--(id)initWithPropertyAndValue:(NSString*)aProperty value:(id)filterValue;
-
-
-@end
-
-@interface CDFilter (CoreData) 
-
--(NSPredicate*)createPredicate;
++ (CDFilter*)inValues:(NSString*)property values:(NSArray*)values;
 
 @end
