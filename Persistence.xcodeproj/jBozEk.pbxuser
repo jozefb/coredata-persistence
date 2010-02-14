@@ -166,6 +166,9 @@
 			C90F71241128571C009EE258 /* PBXBookmark */ = C90F71241128571C009EE258 /* PBXBookmark */;
 			C90F71251128571C009EE258 /* PBXTextBookmark */ = C90F71251128571C009EE258 /* PBXTextBookmark */;
 			C90F712711285727009EE258 /* PBXTextBookmark */ = C90F712711285727009EE258 /* PBXTextBookmark */;
+			C90F716611285944009EE258 /* PBXTextBookmark */ = C90F716611285944009EE258 /* PBXTextBookmark */;
+			C90F716711285944009EE258 /* PBXTextBookmark */ = C90F716711285944009EE258 /* PBXTextBookmark */;
+			C90F716811285944009EE258 /* PBXTextBookmark */ = C90F716811285944009EE258 /* PBXTextBookmark */;
 			C9227C2311121F0A00BCA78C = C9227C2311121F0A00BCA78C /* XDModelBookmark */;
 			C9227C2511121F0A00BCA78C = C9227C2511121F0A00BCA78C /* PBXTextBookmark */;
 			C9227C2611121F0A00BCA78C = C9227C2611121F0A00BCA78C /* PBXTextBookmark */;
@@ -434,6 +437,43 @@
 		vrLen = 1889;
 		vrLoc = 4608;
 	};
+	C90F712D112858CE009EE258 /* GHTestCase.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1202, 1716}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 2179}";
+		};
+	};
+	C90F716611285944009EE258 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C97B15C511284F9B002AD48D /* CDFilterFactoryTestCase.m */;
+		name = "CDFilterFactoryTestCase.m: 43";
+		rLen = 10;
+		rLoc = 1871;
+		rType = 0;
+		vrLen = 2247;
+		vrLoc = 0;
+	};
+	C90F716711285944009EE258 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C90F712D112858CE009EE258 /* GHTestCase.h */;
+		name = "GHTestCase.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2188;
+		vrLoc = 0;
+	};
+	C90F716811285944009EE258 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = C90F712D112858CE009EE258 /* GHTestCase.h */;
+		name = "GHTestCase.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2179;
+		vrLoc = 0;
+	};
 	C9113D73109CCB5E00F0134B /* CDProjectionTestCase.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1202, 1404}}";
@@ -694,39 +734,17 @@
 			sepNavWindowFrame = "{{15, 64}, {1417, 964}}";
 		};
 	};
-	C92F1FBA1038A617006B0A86 /* GHAsyncTestCase.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {961, 1750}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 1582}";
-		};
-	};
-	C92F1FC01038A617006B0A86 /* GHTestCase.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1202, 1833}}";
-			sepNavSelRange = "{3514, 134}";
-			sepNavVisRange = "{2513, 1361}";
-		};
-	};
-	C92F1FC31038A617006B0A86 /* GHTestMacros.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1202, 13000}}";
-			sepNavSelRange = "{15691, 20}";
-			sepNavVisRange = "{14514, 2533}";
-		};
-	};
 	C92F1FC81038A617006B0A86 /* GHUnitIPhoneTestMain.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.objc;
+		name = GHUnitIPhoneTestMain.m;
+		path = "/Users/jBozEk/Documents/projects/xcode/coredata-persistence-0.0.1/Libraries/libGHUnitIPhoneCL3_0-0.3.14/GHUnitIPhoneTestMain.m";
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1202, 780}}";
 			sepNavSelRange = "{401, 1}";
 			sepNavVisRange = "{0, 1954}";
-		};
-	};
-	C92F1FC91038A617006B0A86 /* GHUNSObject+Swizzle.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {961, 601}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 1418}";
 		};
 	};
 	C92F1FE41038A675006B0A86 /* Tests */ = {
@@ -842,8 +860,8 @@
 	C97B15C511284F9B002AD48D /* CDFilterFactoryTestCase.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1202, 2288}}";
-			sepNavSelRange = "{5519, 0}";
-			sepNavVisRange = "{4608, 1889}";
+			sepNavSelRange = "{1871, 10}";
+			sepNavVisRange = "{0, 2247}";
 		};
 	};
 	C97B15CB1128502D002AD48D /* PBXTextBookmark */ = {
@@ -1254,20 +1272,6 @@
 			sepNavIntBoundsRect = "{{0, 0}, {1202, 1170}}";
 			sepNavSelRange = "{1597, 0}";
 			sepNavVisRange = "{1524, 1392}";
-		};
-	};
-	C995DC5F109D9F0200F5D723 /* GHUnitIPhoneAppDelegate.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1202, 673}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 319}";
-		};
-	};
-	C995DC61109D9F0200F5D723 /* NSValue+GHValueFormatter.h */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1202, 884}}";
-			sepNavSelRange = "{1229, 0}";
-			sepNavVisRange = "{662, 2373}";
 		};
 	};
 	C9AD9573109CC0B6000B71DA /* CDFunction.h */ = {
