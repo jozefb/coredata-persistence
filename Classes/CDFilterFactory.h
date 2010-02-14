@@ -37,7 +37,7 @@
 @class CDFilterConjunction;
 
 
-@interface CDFilterFactory {
+@interface CDFilterFactory : NSObject {
 
 }
 
