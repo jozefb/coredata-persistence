@@ -180,7 +180,7 @@
 	[criteria addFilter:[CDFilterFactory inValues:@"name" values:[NSArray arrayWithObject:@"abc"]]];
 	data = [dao findAll:criteria];
 	GHAssertNotNil(data, nil);
-	GHAssertTrue([data count] > 0, nil);
+	GHAssertEquals((NSUInteger)1, [data count], nil);
 	
 	
 }
