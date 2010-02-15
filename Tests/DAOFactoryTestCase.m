@@ -35,10 +35,12 @@
 #import "DAOBase.h"
 #import "CDFunction.h"
 #import "CDProjection.h"
+#import "CDFilterFactory.h"
 
 @interface DAOFactoryTestCase : GHTestCase {
 	
 	NSManagedObject *object1;
+	NSManagedObject *object2;
 }
 
 @end
@@ -62,10 +64,20 @@
 	GHAssertEqualStrings(NSSQLiteStoreType, [DAOFactory storeType], @"Store type error");
 	DAO *dao = [[DAOFactory factory] createDAO:@"TestEntity"];
 	
+	DAO *daoChild = [[DAOFactory factory] createDAO:@"Child"];
+	
 	object1 = [dao insertNewObject];
 	[object1 setName:@"abc"];
 	[object1 setIntProperty:[NSNumber numberWithInt:10]];
 	NSString *name = [object1 name];
+	
+	
+	NSManagedObject * child = [daoChild insertNewObject];
+	object2 = [dao insertNewObject];
+	[object2 setName:@"te2"];
+	[object2 setIntProperty:[NSNumber numberWithInt:20]];
+	[object2 addChildsObject:child];
+	
 }
 
 //! Run after the tests (once per test case)
@@ -122,7 +134,7 @@
 	// bug limit and fetch offset does not work
 	NSArray *data = [dao findAll:1 limit:-1];
 	GHAssertNotNil(data, nil);
-	GHAssertEquals((NSUInteger)1, [data count], nil);
+	GHAssertEquals((NSUInteger)2, [data count], nil);
 	
 	data = [dao findAll:0 limit:1];
 	GHAssertNotNil(data, nil);
@@ -136,17 +148,39 @@
 	
 	NSArray *data = [dao findAll];
 	GHAssertNotNil(data, nil);
-	GHAssertEquals((NSUInteger)1, [data count], nil);
+	GHAssertTrue([data count] > 0, nil);
 	
 	CDSearchCriteria *criteria = [CDSearchCriteria criteria];
 	[criteria addProjection:[CDProjection createWithFunction:[CDFunction max:@"intProperty" resultType:NSInteger32AttributeType]]];
 	data = [dao findAll:criteria];
 	GHAssertNotNil(data, nil);
-	GHAssertEquals((NSUInteger)1, [data count], nil);
+	GHAssertTrue([data count] > 0, nil);
 	NSDictionary *props = [data objectAtIndex:0];
 	NSNumber *expected = [NSNumber numberWithInt:0];
 	NSNumber *found = [props objectForKey:@"max:intProperty"];
 	GHAssertEquals([expected intValue], [found intValue], nil);
+	
+	
+}
+
+- (void)testInValues {	
+	
+	DAO *dao = [[DAOFactory factory] createDAO:@"TestEntity"];
+	DAO *daoChild = [[DAOFactory factory] createDAO:@"Child"];
+	
+	NSArray *data = [dao findAll];
+	GHAssertNotNil(data, nil);
+	GHAssertTrue([data count] > 0, nil);
+	
+	NSArray *dataChilds = [daoChild findAll];
+	GHAssertNotNil(dataChilds, nil);
+	GHAssertTrue([dataChilds count] > 0, nil);
+	
+	CDSearchCriteria *criteria = [CDSearchCriteria criteria];
+	[criteria addFilter:[CDFilterFactory inValues:@"name" values:[NSArray arrayWithObject:@"abc"]]];
+	data = [dao findAll:criteria];
+	GHAssertNotNil(data, nil);
+	GHAssertTrue([data count] > 0, nil);
 	
 	
 }
