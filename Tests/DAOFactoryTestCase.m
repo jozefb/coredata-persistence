@@ -140,6 +140,10 @@
 	GHAssertNotNil(data, nil);
 	GHAssertEquals((NSUInteger)1, [data count], nil);
 	
+	data = [dao findAll:1 limit:2];
+	GHAssertNotNil(data, nil);
+	GHAssertEquals((NSUInteger)2, [data count], nil);
+	
 }
 
 - (void)testFindMaxName {	

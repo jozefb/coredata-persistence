@@ -33,6 +33,7 @@
 #import "DAOBase.h"
 #import <CoreData/CoreData.h>
 #import "CDSearchCriteria.h"
+#import "common_defines.h"
 
 @implementation DAO
 
@@ -77,9 +78,7 @@
 	
 	NSError* error = nil;
 	NSArray* result = [managedObjectContext executeFetchRequest:request error:&error];
-	if (result == nil) {
-		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-	}
+	CHECK_LOG_ERROR(error);
 	
 	return result;
 }
@@ -105,9 +104,7 @@
 	[request setResultType:NSManagedObjectIDResultType];
 	NSError* error = nil;
 	NSUInteger count = [managedObjectContext countForFetchRequest:request error:&error];
-	if (error != nil) {
-		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-	}
+	CHECK_LOG_ERROR(error);
 	
 	return count;
 }
@@ -123,9 +120,7 @@
 	[request setResultType:NSManagedObjectIDResultType];
 	NSError* error = nil;
 	NSArray* result = [managedObjectContext executeFetchRequest:request error:&error];
-	if (result == nil) {
-		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-	}
+	CHECK_LOG_ERROR(error);
 	
 	return result;
 }
@@ -139,9 +134,7 @@
 	NSFetchRequest* request = [criteria createFetchRequest];
 	NSError* error = nil;
 	NSArray* result = [managedObjectContext executeFetchRequest:request error:&error];
-	if (result == nil) {
-		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-	}
+	CHECK_LOG_ERROR(error);
 		
 	return result;
 }

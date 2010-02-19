@@ -30,6 +30,13 @@
 //	OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+#ifndef CHECK_LOG_ERROR
+#define CHECK_LOG_ERROR(error)\
+if (error) {\
+LOG_ERROR(error);\
+}
+#endif
+
 #ifndef LOG_ERROR_AND_EXIT1
 #define LOG_ERROR_AND_EXIT1(error)\
 NSLog(@"Unresolved error %@, %@", error, [error userInfo]);\
@@ -37,6 +44,14 @@ exit(1);
 #endif
 
 #ifndef LOG_ERROR
-#define LOG_ERROR(error)\
-NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+#define LOG_ERROR(error) \
+NSDictionary * dict  = [error userInfo];\
+NSArray * detailedErrors = [dict objectForKey:NSDetailedErrorsKey];\
+if (detailedErrors) { \
+	for (NSError * detailedError in detailedErrors) {  \
+		NSLog(@"Unresolved error : %@", [detailedError userInfo]);  \
+	} \
+} else { \
+	NSLog(@"Unresolved error %@, %@", error, [error userInfo]);  \
+}
 #endif
