@@ -15,22 +15,7 @@
 		C90F713D112858CE009EE258 /* libGHUnitIPhone3_0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C90F7137112858CE009EE258 /* libGHUnitIPhone3_0.a */; };
 		C90F713E112858CE009EE258 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = C90F7138112858CE009EE258 /* Makefile */; };
 		C90F713F112858CE009EE258 /* RunTests.sh in Resources */ = {isa = PBXBuildFile; fileRef = C90F713B112858CE009EE258 /* RunTests.sh */; };
-		C90F7140112858CE009EE258 /* GHAsyncTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = C90F712B112858CE009EE258 /* GHAsyncTestCase.h */; };
-		C90F7141112858CE009EE258 /* GHTest.h in Headers */ = {isa = PBXBuildFile; fileRef = C90F712C112858CE009EE258 /* GHTest.h */; };
-		C90F7142112858CE009EE258 /* GHTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = C90F712D112858CE009EE258 /* GHTestCase.h */; };
-		C90F7143112858CE009EE258 /* GHTestGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = C90F712E112858CE009EE258 /* GHTestGroup.h */; };
-		C90F7144112858CE009EE258 /* GHTesting.h in Headers */ = {isa = PBXBuildFile; fileRef = C90F712F112858CE009EE258 /* GHTesting.h */; };
-		C90F7145112858CE009EE258 /* GHTestMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = C90F7130112858CE009EE258 /* GHTestMacros.h */; };
-		C90F7146112858CE009EE258 /* GHTestRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = C90F7131112858CE009EE258 /* GHTestRunner.h */; };
-		C90F7147112858CE009EE258 /* GHTestSuite.h in Headers */ = {isa = PBXBuildFile; fileRef = C90F7132112858CE009EE258 /* GHTestSuite.h */; };
-		C90F7148112858CE009EE258 /* GHUnit.h in Headers */ = {isa = PBXBuildFile; fileRef = C90F7133112858CE009EE258 /* GHUnit.h */; };
-		C90F7149112858CE009EE258 /* GHUnitIPhoneAppDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = C90F7134112858CE009EE258 /* GHUnitIPhoneAppDelegate.h */; };
-		C90F714A112858CE009EE258 /* GHUnitIPhoneTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = C90F7135112858CE009EE258 /* GHUnitIPhoneTestMain.m */; };
-		C90F714B112858CE009EE258 /* GHUNSObject+Swizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = C90F7136112858CE009EE258 /* GHUNSObject+Swizzle.h */; };
-		C90F714C112858CE009EE258 /* libGHUnitIPhone3_0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C90F7137112858CE009EE258 /* libGHUnitIPhone3_0.a */; };
 		C90F714D112858CE009EE258 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = C90F7138112858CE009EE258 /* Makefile */; };
-		C90F714E112858CE009EE258 /* NSException+GHTestFailureExceptions.h in Headers */ = {isa = PBXBuildFile; fileRef = C90F7139112858CE009EE258 /* NSException+GHTestFailureExceptions.h */; };
-		C90F714F112858CE009EE258 /* NSValue+GHValueFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = C90F713A112858CE009EE258 /* NSValue+GHValueFormatter.h */; };
 		C9113D74109CCB5E00F0134B /* CDProjectionTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = C9113D73109CCB5E00F0134B /* CDProjectionTestCase.m */; };
 		C9113DFB109CD59500F0134B /* CDFunctionTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = C9113DFA109CD59500F0134B /* CDFunctionTestCase.m */; };
 		C9284DD31081D92C008567C6 /* CDNullFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C9284DD21081D92C008567C6 /* CDNullFilter.m */; };
@@ -223,7 +208,6 @@
 			files = (
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
 				C92F21681038B57E006B0A86 /* CoreData.framework in Frameworks */,
-				C90F714C112858CE009EE258 /* libGHUnitIPhone3_0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,19 +413,6 @@
 				C9284DD41081D92C008567C6 /* CDNullFilter.h in Headers */,
 				C9AD9574109CC0B6000B71DA /* CDFunction.h in Headers */,
 				C97B15DB11285052002AD48D /* CDFilterFactory.h in Headers */,
-				C90F7140112858CE009EE258 /* GHAsyncTestCase.h in Headers */,
-				C90F7141112858CE009EE258 /* GHTest.h in Headers */,
-				C90F7142112858CE009EE258 /* GHTestCase.h in Headers */,
-				C90F7143112858CE009EE258 /* GHTestGroup.h in Headers */,
-				C90F7144112858CE009EE258 /* GHTesting.h in Headers */,
-				C90F7145112858CE009EE258 /* GHTestMacros.h in Headers */,
-				C90F7146112858CE009EE258 /* GHTestRunner.h in Headers */,
-				C90F7147112858CE009EE258 /* GHTestSuite.h in Headers */,
-				C90F7148112858CE009EE258 /* GHUnit.h in Headers */,
-				C90F7149112858CE009EE258 /* GHUnitIPhoneAppDelegate.h in Headers */,
-				C90F714B112858CE009EE258 /* GHUNSObject+Swizzle.h in Headers */,
-				C90F714E112858CE009EE258 /* NSException+GHTestFailureExceptions.h in Headers */,
-				C90F714F112858CE009EE258 /* NSValue+GHValueFormatter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,7 +543,6 @@
 				C9284DD51081D92C008567C6 /* CDNullFilter.m in Sources */,
 				C9AD9577109CC0C2000B71DA /* CDFunction.m in Sources */,
 				C97B15DE11285062002AD48D /* CDFilterFactory.m in Sources */,
-				C90F714A112858CE009EE258 /* GHUnitIPhoneTestMain.m in Sources */,
 				C90F714D112858CE009EE258 /* Makefile in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
