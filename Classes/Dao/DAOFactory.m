@@ -53,7 +53,7 @@ static NSString* storeType;
 + (void)setStorePath:(NSString*)path {
 	if (storePath != path) {
 		[storePath release];
-		storePath = [[path copy] retain];
+		storePath = [path copy];
 	}
 }
 
@@ -64,7 +64,7 @@ static NSString* storeType;
 + (void)setStoreType:(NSString*)aStoreType {
 	if (storeType != aStoreType) {
 		[storeType release];
-		storeType = [[aStoreType copy] retain];
+		storeType = [aStoreType copy];
 	}
 }
 
