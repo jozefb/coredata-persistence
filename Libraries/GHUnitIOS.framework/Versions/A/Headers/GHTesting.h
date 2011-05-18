@@ -27,6 +27,8 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
+//! @cond DEV
+
 //
 // Portions of this file fall under the following license, marked with:
 // GTM_BEGIN : GTM_END
@@ -46,20 +48,24 @@
 //  the License.
 //
 
+#ifdef __cplusplus
+extern "C" NSString *GHUStackTraceFromException(NSException *e);
+#else
 extern NSString *GHUStackTraceFromException(NSException *e);
+#endif
 
 // GTM_BEGIN
 BOOL isTestFixtureOfClass(Class aClass, Class testCaseClass);
 // GTM_END
 
-/*!	
+/*! 
  Utility test for loading and running tests.
  @note Much of this is borrowed from GTM/UnitTesting.
  */
 @interface GHTesting : NSObject { 
 
-	NSMutableArray/* of NSString*/ *testCaseClassNames_;
-	
+  NSMutableArray/* of NSString*/ *testCaseClassNames_;
+  
 }
 
 /*!
@@ -104,6 +110,20 @@ BOOL isTestFixtureOfClass(Class aClass, Class testCaseClass);
 + (NSString *)descriptionForException:(NSException *)exception;
 
 /*!
+ Filename for cause of test exception.
+ @param test
+ @result Filename
+ */
++ (NSString *)exceptionFilenameForTest:(id<GHTest>)test;
+
+/*!
+ Line number for cause of test exception.
+ @param test
+ @result Line number
+ */
++ (NSInteger)exceptionLineNumberForTest:(id<GHTest>)test;
+
+/*!
  Run test.
  @param target
  @param selector
@@ -124,3 +144,5 @@ BOOL isTestFixtureOfClass(Class aClass, Class testCaseClass);
 @protocol GHSenTestCase 
 - (void)raiseAfterFailure;
 @end
+
+//! @endcond

@@ -31,7 +31,7 @@
 //	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-#import "GHUnit.h"
+#import <GHUnitIOS/GHUnit.h>
 #import <CoreData/CoreData.h>
 #import "CDSearchCriteria.h"
 #import "CDFilter.h"

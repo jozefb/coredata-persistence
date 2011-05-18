@@ -32,7 +32,7 @@
 
 
 
-#import "GHUnit.h"
+#import <GHUnitIOS/GHUnit.h>
 
 @interface CDOrderTestCase : NSObject {
 	

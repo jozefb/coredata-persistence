@@ -32,7 +32,7 @@
 
 
 #import <CoreData/CoreData.h>
-#import "GHUnit.h"
+#import <GHUnitIOS/GHUnit.h>
 #import "CDSearchCriteria.h"
 #import "CDFilter.h"
 #import "CDOrder.h"

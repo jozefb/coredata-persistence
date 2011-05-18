@@ -30,7 +30,7 @@
 //	OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import "GHUnit.h"
+#import <GHUnitIOS/GHUnit.h>
 #import "CDSearchCriteria.h"
 #import "CDFilter.h"
 #import "CDOrder.h"
