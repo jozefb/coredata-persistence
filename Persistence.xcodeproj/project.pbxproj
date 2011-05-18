@@ -87,6 +87,8 @@
 		C9CCCCA11087A39000350FDD /* CDOrderTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CCCCA01087A39000350FDD /* CDOrderTestCase.m */; };
 		C9E1E25813844BC200D54FBD /* GHUnitIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E1E25613844BC200D54FBD /* GHUnitIOS.framework */; };
 		C9E1E25A13844F1C00D54FBD /* GHUnitIOSTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E1E25913844F1C00D54FBD /* GHUnitIOSTestMain.m */; };
+		C9E1E39413845EFC00D54FBD /* Tests-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = C9E1E39213845EFC00D54FBD /* Tests-Prefix.pch */; };
+		C9E1E39613845FCB00D54FBD /* Tests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9E1E39513845FCB00D54FBD /* Tests-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,7 +132,6 @@
 		C92F1F7E1038A597006B0A86 /* CDSearchCriteria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDSearchCriteria.h; path = Classes/CDSearchCriteria.h; sourceTree = "<group>"; };
 		C92F1F7F1038A597006B0A86 /* CDSearchCriteria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDSearchCriteria.m; path = Classes/CDSearchCriteria.m; sourceTree = "<group>"; };
 		C92F1FE51038A675006B0A86 /* Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tests.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C92F1FE71038A675006B0A86 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		C92F1FFD1038A6F8006B0A86 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C92F20031038A71E006B0A86 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		C92F20071038A72F006B0A86 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -145,7 +146,7 @@
 		C97B15C511284F9B002AD48D /* CDFilterFactoryTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDFilterFactoryTestCase.m; sourceTree = "<group>"; };
 		C97B15DA11285052002AD48D /* CDFilterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDFilterFactory.h; path = Classes/CDFilterFactory.h; sourceTree = "<group>"; };
 		C97B15DC11285062002AD48D /* CDFilterFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDFilterFactory.m; path = Classes/CDFilterFactory.m; sourceTree = "<group>"; };
-		C9860010108A13D200900C3E /* Test.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = Test.xcdatamodel; sourceTree = "<group>"; };
+		C9860010108A13D200900C3E /* Test.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; name = Test.xcdatamodel; path = Tests/Test.xcdatamodel; sourceTree = "<group>"; };
 		C98BBE3D1039EB7300E63F84 /* common_defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common_defines.h; sourceTree = "<group>"; };
 		C98BBFCD1039F5B200E63F84 /* DAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DAO.h; path = Classes/Dao/DAO.h; sourceTree = "<group>"; };
 		C98BBFE51039F61A00E63F84 /* DAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAO.h; sourceTree = "<group>"; };
@@ -164,6 +165,8 @@
 		C9CCCCA01087A39000350FDD /* CDOrderTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDOrderTestCase.m; sourceTree = "<group>"; };
 		C9E1E25613844BC200D54FBD /* GHUnitIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnitIOS.framework; path = Libraries/GHUnitIOS.framework; sourceTree = "<group>"; };
 		C9E1E25913844F1C00D54FBD /* GHUnitIOSTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUnitIOSTestMain.m; sourceTree = "<group>"; };
+		C9E1E39213845EFC00D54FBD /* Tests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Tests-Prefix.pch"; path = "Tests/Tests-Prefix.pch"; sourceTree = "<group>"; };
+		C9E1E39513845FCB00D54FBD /* Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		D2AAC07E0554694100DB518D /* libPersistence.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPersistence.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -262,6 +265,7 @@
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C9E1E39213845EFC00D54FBD /* Tests-Prefix.pch */,
 				C98BBE3D1039EB7300E63F84 /* common_defines.h */,
 				AA747D9E0F9514B9006C5449 /* Persistence_Prefix.pch */,
 			);
@@ -297,8 +301,6 @@
 				C9CCCCA01087A39000350FDD /* CDOrderTestCase.m */,
 				C9113D73109CCB5E00F0134B /* CDProjectionTestCase.m */,
 				C9113DFA109CD59500F0134B /* CDFunctionTestCase.m */,
-				C9860010108A13D200900C3E /* Test.xcdatamodel */,
-				C98BC0AE1039F9C300E63F84 /* test.sqlite */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -321,7 +323,9 @@
 		C99A00EE108655B40037B60E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C92F1FE71038A675006B0A86 /* Tests-Info.plist */,
+				C9E1E39513845FCB00D54FBD /* Tests-Info.plist */,
+				C98BC0AE1039F9C300E63F84 /* test.sqlite */,
+				C9860010108A13D200900C3E /* Test.xcdatamodel */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -380,6 +384,7 @@
 				C9284DD41081D92C008567C6 /* CDNullFilter.h in Headers */,
 				C9AD9574109CC0B6000B71DA /* CDFunction.h in Headers */,
 				C97B15DB11285052002AD48D /* CDFilterFactory.h in Headers */,
+				C9E1E39413845EFC00D54FBD /* Tests-Prefix.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C98BC0AF1039F9C300E63F84 /* test.sqlite in Resources */,
+				C9E1E39613845FCB00D54FBD /* Tests-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
