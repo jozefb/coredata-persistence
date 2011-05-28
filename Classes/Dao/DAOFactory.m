@@ -203,10 +203,12 @@ static NSString* storeType;
 		
 		NSString* resType = [comps objectAtIndex:comps.count - 1];
 		NSString* path = [[NSBundle mainBundle] pathForResource:compsString ofType:resType];
-		NSError* error;
-		if (![fileManager copyItemAtPath:path toPath:storePathTmp error:&error]) {
-			LOG_ERROR(error);
-		}
+        if (path && [path length] > 0) {
+            NSError* error;
+            if (![fileManager copyItemAtPath:path toPath:storePathTmp error:&error]) {
+                LOG_ERROR(error);
+            } 
+        }		
 	}
 	
     NSURL *storeUrl = [NSURL fileURLWithPath: storePathTmp];
@@ -232,7 +234,7 @@ static NSString* storeType;
 - (NSString *)applicationDocumentsDirectory {
 	
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    NSString *basePath = [paths lastObject];
     return basePath;
 }
 
