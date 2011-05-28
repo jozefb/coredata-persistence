@@ -62,13 +62,13 @@
 -(NSUInteger)count:(CDSearchCriteria*)criteria;
 
 // inserts new managed object and returns it to caller
--(NSManagedObject*)insertNewObject;
+-(id)insertNewObject;
 
 // deletes given managed object
 -(void)deleteObject:(NSManagedObject*)object;
 
 // resturns managed object with given id
--(NSManagedObject*)findObjectById:(NSManagedObjectID*)objectID;
+-(id)findObjectById:(NSManagedObjectID*)objectID;
 
 // if flag is YES, merges an object with the state of the object available in the persistent store coordinator; 
 // if flag is NO, simply refaults an object without merging (which also causes other related managed objects to be released, so you can use this method to trim the portion of your object graph you want to hold in memory) 

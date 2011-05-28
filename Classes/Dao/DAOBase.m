@@ -139,7 +139,7 @@
 	return result;
 }
 
--(NSManagedObject*)insertNewObject{
+-(id)insertNewObject{
 	NSManagedObject* object = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:managedObjectContext];
 	return object;
 }
@@ -148,7 +148,7 @@
 	[managedObjectContext deleteObject:object];
 }
 
--(NSManagedObject*)findObjectById:(NSManagedObjectID*)entityID {
+-(id)findObjectById:(NSManagedObjectID*)entityID {
 	return [managedObjectContext objectWithID:entityID];
 }
 
@@ -160,7 +160,8 @@
 ////////////////////////////////
 
 -(id)init{
-	if (self = [super init]) {
+    self = [super init];
+	if (self) {
 		
 	}
 	
@@ -168,7 +169,8 @@
 }
 
 -(id)initWithContextAndEntityName:(NSManagedObjectContext*)context entityName:(NSString*)name {
-	if (self = [self init]) {
+    self = [self init];
+	if (self) {
 		self.entityName = name;
 		self.managedObjectContext = context;
 	}
@@ -177,7 +179,8 @@
 }
 
 -(id)initWithContext:(NSManagedObjectContext*)context {
-	if (self = [self initWithContextAndEntityName:context entityName:nil]) {
+    self = [self initWithContextAndEntityName:context entityName:nil];
+	if (self) {
 		
 	}
 	
