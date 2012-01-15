@@ -3,7 +3,7 @@
 //
 //  Created by Ing. Jozef Bozek on 29.5.2009.
 //
-//	Copyright © 2009 Grapph. All Rights Reserved.
+//	Copyright © 2010 bring-it-together s.r.o.. All Rights Reserved.
 // 
 //	Redistribution and use in source and binary forms, with or without 
 //	modification, are permitted provided that the following conditions are met:
@@ -19,7 +19,7 @@
 //	   to endorse or promote products derived from this software without specific
 //	   prior written permission.
 //
-//	THIS SOFTWARE IS PROVIDED BY GRAPPH "AS IS"
+//	THIS SOFTWARE IS PROVIDED BY BRING-IT-TOGETHER S.R.O. "AS IS"
 //	AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
 //	IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
 //	DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE
