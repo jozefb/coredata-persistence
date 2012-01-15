@@ -40,12 +40,14 @@
 	CDFunction* _function;
 }
 
-@property (nonatomic, retain, getter=_function, setter=_function) CDFunction* function;
+@property (nonatomic, retain) CDFunction* function;
 - (id)initWithFunction:(CDFunction*)function;
 
 @end
 
 @implementation CDProjection
+
+
 
 + (CDProjection*)createWithProperty:(NSString*)property {
 	CDProjection *projection = [[CDProjection alloc] initWithProperty:property];
