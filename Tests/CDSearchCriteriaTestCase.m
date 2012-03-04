@@ -66,7 +66,7 @@
 	NSEntityDescription* entityDescritpion = [NSEntityDescription entityForName:@"TestEntity" inManagedObjectContext:[[DAOFactory factory] managedObjectContext]];
 	NSFetchRequest* request = [[NSFetchRequest alloc] init];
 	[request setEntity:entityDescritpion];
-	return [request autorelease];
+	return request;
 }
 
 - (void)testInit {
@@ -75,7 +75,6 @@
 	GHAssertNil(criteria.orders, nil);
 	GHAssertNil(criteria.filters, nil);
 	GHAssertNil(criteria.entityName, nil);
-	[criteria release];
 }
 
 - (void)testCriteria {
@@ -93,7 +92,6 @@
 	GHAssertNil(criteria.orders, nil);
 	GHAssertNil(criteria.filters, nil);
 	GHAssertEquals(@"testEntity", criteria.entityName, nil);
-	[criteria release];
 }
 
 - (void)testCriteriaWithEntityName {
@@ -114,7 +112,6 @@
 	GHAssertNil(criteria.orders, nil);
 	GHAssertNotNil(criteria.filters, nil);
 	GHAssertEquals((NSUInteger)1, [[criteria filters] count], nil);
-	[filter release];
 }
 
 - (void)testAddProjection {
@@ -122,7 +119,6 @@
 	
 	CDProjection* projection = [[CDProjection alloc] init];
 	[criteria addProjection:projection];
-	[projection release];
 	GHAssertNil(criteria.orders, nil);
 	GHAssertNil(criteria.filters, nil);
 	GHAssertNotNil(criteria.projections, nil);
@@ -135,7 +131,6 @@
 	
 	CDFilter* filter = [[CDFilter alloc] init];
 	[criteria addFilter:filter];
-	[filter release];
 	GHAssertEquals((NSUInteger)1, [[criteria filters] count], nil);
 	
 	[criteria removeFilter:filter];
@@ -148,7 +143,6 @@
 	
 	CDOrder* order = [[CDOrder alloc] init];
 	[criteria addOrder:order];
-	[order release];
 	
 	GHAssertNotNil(criteria.orders, nil);
 	GHAssertNil(criteria.filters, nil);
@@ -165,7 +159,6 @@
 	
 	[criteria removeOrder:order];
 	GHAssertEquals((NSUInteger)0, [[criteria orders] count], nil);
-	[order release];
 }
 
 - (void)testCreateFetchRequest_Order {
@@ -254,7 +247,6 @@
 	
 	CDProjection* projection = [[CDProjection alloc] initWithProperty:[NSString stringWithString:@"name"]];
 	[criteria addProjection:projection];
-	[projection release];
 	
 	GHAssertNotNil(criteria.projections, nil);
 	GHAssertEquals((NSUInteger)1, [[criteria projections] count], nil);

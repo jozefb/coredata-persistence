@@ -31,7 +31,7 @@
 //	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #import "CDFilterConjunction.h"
-
+#import "CDFilter.h"
 
 @implementation CDFilterConjunction
 

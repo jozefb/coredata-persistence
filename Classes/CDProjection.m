@@ -40,7 +40,7 @@
 	CDFunction* _function;
 }
 
-@property (nonatomic, retain) CDFunction* function;
+@property (nonatomic, strong) CDFunction* function;
 - (id)initWithFunction:(CDFunction*)function;
 
 @end
@@ -51,12 +51,12 @@
 
 + (CDProjection*)createWithProperty:(NSString*)property {
 	CDProjection *projection = [[CDProjection alloc] initWithProperty:property];
-	return [projection autorelease];
+	return projection;
 }
 
 + (CDProjection*)createWithFunction:(CDFunction*)function {
 	CDFunctionProjection *projection = [[CDFunctionProjection alloc] initWithFunction:function];
-	return [projection autorelease];
+	return projection;
 }
 
 - (NSPropertyDescription*)createPropertyDescription:(NSDictionary *)entityProperties {
@@ -71,7 +71,7 @@
 
 - (id)initWithFunction:(CDFunction*)function {
 	if (self = [super init]) {
-		_function = [function retain];
+		_function = function;
 	}
 	
 	return self;
@@ -88,12 +88,8 @@
 	[result setExpression:funcExpression];
 	[result setExpressionResultType:self.function.resultType];
 	
-	return [result autorelease];
+	return result;
 }
 
--(void)dealloc {
-	[_function release];
-	[super dealloc];
-}
 
 @end

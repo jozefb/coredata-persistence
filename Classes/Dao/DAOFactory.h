@@ -41,9 +41,6 @@
 
 @interface DAOFactory : NSObject {
 	
-	NSManagedObjectModel *managedObjectModel;
-	NSManagedObjectContext *managedObjectContext;
-	NSPersistentStoreCoordinator *persistentStoreCoordinator;
 }
 
 + (DAOFactory*)factory;
@@ -53,14 +50,14 @@
 + (NSString*)storePath;
 + (NSString*)storeType;
 
-@property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, strong, readonly) NSManagedObjectModel *managedObjectModel;
 
 /** 
  * TODO - volitelne subcontexty pre novovytvarane DAO
  */
-@property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-@property (nonatomic, assign) NSUndoManager* undoManager;
+@property (nonatomic, strong, readonly) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (nonatomic, unsafe_unretained) NSUndoManager* undoManager;
 
 - (NSString *)applicationDocumentsDirectory;
 

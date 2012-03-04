@@ -51,11 +51,6 @@
 	return self;
 }
 
--(void)dealloc {
-	[_bindValues release];
-	[_filteredElement release];
-	[super dealloc];
-}
 
 +(CDFilter*)equals:(NSString*)aProperty value:(id)aValue {
 	return [CDFilterFactory equals:aProperty value:aValue];

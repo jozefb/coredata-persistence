@@ -36,6 +36,14 @@
 #import "DAOFactory.h"
 #import "RuntimeDAO.h"
 
+@interface DAOFactory () 
+
+@property (nonatomic, strong, readwrite) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, strong, readwrite) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong, readwrite) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+@end
+
 @implementation DAOFactory
 
 @synthesize managedObjectModel;
@@ -52,7 +60,6 @@ static NSString* storeType;
 
 + (void)setStorePath:(NSString*)path {
 	if (storePath != path) {
-		[storePath release];
 		storePath = [path copy];
 	}
 }
@@ -63,7 +70,6 @@ static NSString* storeType;
 
 + (void)setStoreType:(NSString*)aStoreType {
 	if (storeType != aStoreType) {
-		[storeType release];
 		storeType = [aStoreType copy];
 	}
 }
@@ -74,7 +80,6 @@ static NSString* storeType;
 
 -init {
 	if (factory) {
-		[self release];
 		return factory;
 	}
 	
@@ -101,7 +106,7 @@ static NSString* storeType;
 
 -(DAO*)createDAO:(NSString*)entityName {
 	DAO *dao = [[RuntimeDAO alloc] initWithContextAndEntityName:self.managedObjectContext entityName:entityName];
-	return [dao autorelease];
+	return dao;
 }
 
 -(BOOL)save:(NSError**)error {
@@ -172,7 +177,7 @@ static NSString* storeType;
     if (managedObjectModel != nil) {
         return managedObjectModel;
     }
-    managedObjectModel = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];
+    self.managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
     return managedObjectModel;
 }
 
@@ -241,8 +246,5 @@ static NSString* storeType;
 
 #pragma mark -
 
--(void)dealloc {
-	
-}
 
 @end

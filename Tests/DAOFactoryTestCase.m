@@ -36,11 +36,13 @@
 #import "CDFunction.h"
 #import "CDProjection.h"
 #import "CDFilterFactory.h"
+#import "TestEntity.h"
+#import "Child.h"
 
 @interface DAOFactoryTestCase : GHTestCase {
 	
-	NSManagedObject *object1;
-	NSManagedObject *object2;
+	TestEntity *object1;
+	TestEntity *object2;
 }
 
 @end
@@ -72,7 +74,7 @@
 	NSString *name = [object1 name];
 	
 	
-	NSManagedObject * child = [daoChild insertNewObject];
+	Child * child = [daoChild insertNewObject];
 	object2 = [dao insertNewObject];
 	[object2 setName:@"te2"];
 	[object2 setIntProperty:[NSNumber numberWithInt:20]];
@@ -101,8 +103,6 @@
 	DAO *dao2 = [[DAOFactory factory] newRuntimeDAO:@"TestEntity"];
 	GHAssertNotEquals(dao, dao2, @"Runtime dao can not be same");
 	
-	[dao release];
-	[dao2 release];
 }
 
 - (void)testCreateRuntimeDAO {	
@@ -125,7 +125,6 @@
 	data = [dao findAll:0 limit:1];
 	GHAssertNotNil(data, nil);
 	
-	[dao release];
 }
 
 - (void)testFindAllOffsetLimit {	

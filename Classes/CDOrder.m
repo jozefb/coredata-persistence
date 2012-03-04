@@ -47,7 +47,7 @@
 
 +(CDOrder*)createWithPropertyAndType:(NSString*)aProperty orderType:(CDOrderType)aOrderType {
 	CDOrder* order = [[CDOrder alloc] initWithPropertyAndType:aProperty orderType:aOrderType];
-	return [order autorelease];
+	return order;
 }
 
 +(CDOrder*)ascendingOrder:(NSString*)aProperty {
@@ -63,9 +63,6 @@
 }
 
 
--(void)dealloc {
-	[super dealloc];
-}
 
 @end
 
@@ -73,7 +70,6 @@
 
 -(NSSortDescriptor*)createSortDescriptor {
 	NSSortDescriptor* descriptor = [[NSSortDescriptor alloc] initWithKey:super.property ascending:self.orderType];
-	[descriptor autorelease];
 	return descriptor;
 }
 

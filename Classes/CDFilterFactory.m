@@ -43,60 +43,60 @@
 
 +(CDFilter*)equals:(NSString*)aProperty value:(id)aValue {
 	CDFilter* filter = [[CDEqualFilter alloc] initWithPropertyAndValue:aProperty value:aValue];
-	return [filter autorelease];
+	return filter;
 }
 
 +(CDFilter*)like:(NSString*)aProperty value:(NSString*)aValue caseSensitive:(BOOL)caseSensitive {
 	CDLikeFilter* filter = [[CDLikeFilter alloc] initWithPropertyAndValue:aProperty value:aValue];
 	filter.caseSensitive = caseSensitive;
-	return [filter autorelease];
+	return filter;
 }
 
 +(CDFilter*)like:(NSString*)aProperty value:(NSString*)aValue {
 	CDFilter* filter = [[CDLikeFilter alloc] initWithPropertyAndValue:aProperty value:aValue];
-	return [filter autorelease];
+	return filter;
 }
 
 +(CDFilterDisjunction*)disjunction {
-	return [[[CDFilterDisjunction alloc] init] autorelease];
+	return [[CDFilterDisjunction alloc] init];
 }
 
 +(CDFilterConjunction*)conjuction {
-	return [[[CDFilterConjunction alloc] init] autorelease];
+	return [[CDFilterConjunction alloc] init];
 }
 
 +(CDFilter*)notEquals:(NSString*)aProperty value:(id)aValue {
 	CDFilter* filter = [[CDOperatorFilter alloc] initWithPropertyAndValue:aProperty value:aValue operatorType:CDFilterOperatorNotEqual];
-	return [filter autorelease];
+	return filter;
 }
 
 +(CDFilter*)less:(NSString*)aProperty value:(id)aValue {
 	CDFilter* filter = [[CDOperatorFilter alloc] initWithPropertyAndValue:aProperty value:aValue operatorType:CDFilterOperatorLess];
-	return [filter autorelease];
+	return filter;
 }
 
 +(CDFilter*)greather:(NSString*)aProperty value:(id)aValue {
 	CDFilter* filter = [[CDOperatorFilter alloc] initWithPropertyAndValue:aProperty value:aValue operatorType:CDFilterOperatorGreather];
-	return [filter autorelease];
+	return filter;
 }
 
 //  Creates equals filter
 +(CDFilter*)isNull:(NSString*)property {
 	CDNullFilter* filter = [[CDNullFilter alloc] initWithProperty:property];
 	filter.isNull = YES;
-	return [filter autorelease];
+	return filter;
 }
 
 //  Creates equals filter
 +(CDFilter*)isNotNull:(NSString*)property {
 	CDNullFilter* filter = [[CDNullFilter alloc] initWithProperty:property];
 	filter.isNull = NO;
-	return [filter autorelease];
+	return filter;
 }
 
 +(CDFilter*)inValues:(NSString*)property values:(NSArray*)values {
 	CDFilter* filter = [[CDOperatorFilter alloc] initWithPropertyAndValue:property value:values operatorType:CDFilterOperatorIn];
-	return [filter autorelease];
+	return filter;
 }
 
 @end

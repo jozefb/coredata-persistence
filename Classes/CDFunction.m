@@ -39,7 +39,7 @@
 
 -(id)initWithPropertyAndNameAndType:(NSString*)prop name:(NSString*)aName resultType:(NSAttributeType)resultType {
 	if (self = [super initWithProperty:prop]) {
-		_name = [aName retain];
+		_name = aName;
 		_resultType = resultType;
 	}
 	
@@ -49,32 +49,28 @@
 // MIN function for given entity property
 + (CDFunction*)min:(NSString*)property resultType:(NSAttributeType)resultType {
 	CDFunction *function = [[CDFunction alloc] initWithPropertyAndNameAndType:property name:@"min:" resultType:resultType];
-	return [function autorelease];
+	return function;
 }
 
 // MAX function for given entity property
 + (CDFunction*)max:(NSString*)property resultType:(NSAttributeType)resultType {
 	CDFunction *function = [[CDFunction alloc] initWithPropertyAndNameAndType:property name:@"max:" resultType:resultType];
-	return [function autorelease];
+	return function;
 }
 
 // SUM function for given entity property
 + (CDFunction*)sum:(NSString*)property resultType:(NSAttributeType)resultType {
 	CDFunction *function = [[CDFunction alloc] initWithPropertyAndNameAndType:property name:@"sum:" resultType:resultType];
-	return [function autorelease];
+	return function;
 }
 
 // LOWER function for given entity property
 + (CDFunction*)lower:(NSString*)property resultType:(NSAttributeType)resultType {
 	CDFunction *function = [[CDFunction alloc] initWithPropertyAndNameAndType:property name:@"lower:" resultType:resultType];
-	return [function autorelease];
+	return function;
 }
 
 
 
-- (void)dealloc {
-	[_name release];
-	[super dealloc];
-}
 
 @end

@@ -89,6 +89,10 @@
 		C9E1E25A13844F1C00D54FBD /* GHUnitIOSTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E1E25913844F1C00D54FBD /* GHUnitIOSTestMain.m */; };
 		C9E1E39413845EFC00D54FBD /* Tests-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = C9E1E39213845EFC00D54FBD /* Tests-Prefix.pch */; };
 		C9E1E39613845FCB00D54FBD /* Tests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9E1E39513845FCB00D54FBD /* Tests-Info.plist */; };
+		F2A9414415041ECE00589369 /* Child.h in Headers */ = {isa = PBXBuildFile; fileRef = F2A9414215041ECE00589369 /* Child.h */; };
+		F2A9414515041ECE00589369 /* Child.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A9414315041ECE00589369 /* Child.m */; };
+		F2A9414815041ECF00589369 /* TestEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = F2A9414615041ECF00589369 /* TestEntity.h */; };
+		F2A9414915041ECF00589369 /* TestEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A9414715041ECF00589369 /* TestEntity.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +172,10 @@
 		C9E1E39213845EFC00D54FBD /* Tests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Tests-Prefix.pch"; path = "Tests/Tests-Prefix.pch"; sourceTree = "<group>"; };
 		C9E1E39513845FCB00D54FBD /* Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		D2AAC07E0554694100DB518D /* libPersistence.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPersistence.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2A9414215041ECE00589369 /* Child.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Child.h; sourceTree = "<group>"; };
+		F2A9414315041ECE00589369 /* Child.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Child.m; sourceTree = "<group>"; };
+		F2A9414615041ECF00589369 /* TestEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestEntity.h; sourceTree = "<group>"; };
+		F2A9414715041ECF00589369 /* TestEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestEntity.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,6 +309,10 @@
 				C9CCCCA01087A39000350FDD /* CDOrderTestCase.m */,
 				C9113D73109CCB5E00F0134B /* CDProjectionTestCase.m */,
 				C9113DFA109CD59500F0134B /* CDFunctionTestCase.m */,
+				F2A9414615041ECF00589369 /* TestEntity.h */,
+				F2A9414715041ECF00589369 /* TestEntity.m */,
+				F2A9414215041ECE00589369 /* Child.h */,
+				F2A9414315041ECE00589369 /* Child.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -385,6 +397,8 @@
 				C9AD9574109CC0B6000B71DA /* CDFunction.h in Headers */,
 				C97B15DB11285052002AD48D /* CDFilterFactory.h in Headers */,
 				C9E1E39413845EFC00D54FBD /* Tests-Prefix.pch in Headers */,
+				F2A9414415041ECE00589369 /* Child.h in Headers */,
+				F2A9414815041ECF00589369 /* TestEntity.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +532,8 @@
 				C9284DD51081D92C008567C6 /* CDNullFilter.m in Sources */,
 				C9AD9577109CC0C2000B71DA /* CDFunction.m in Sources */,
 				C97B15DE11285062002AD48D /* CDFilterFactory.m in Sources */,
+				F2A9414515041ECE00589369 /* Child.m in Sources */,
+				F2A9414915041ECF00589369 /* TestEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +553,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jozef Bo�ek (KZ32337Y2R)";
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/Persistence.dst;
@@ -550,6 +567,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Persistence_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INSTALL_PATH = /usr/local/lib;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -566,6 +584,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/Persistence.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -574,6 +593,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Persistence_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INSTALL_PATH = /usr/local/lib;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -617,6 +637,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -627,6 +648,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Tests-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "";
@@ -648,6 +670,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -658,6 +681,7 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "Tests-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "";

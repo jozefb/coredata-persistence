@@ -47,9 +47,5 @@
 	return self;
 }
 
--(void)dealloc {
-	[filters release];
-	[super dealloc];
-}
 
 @end

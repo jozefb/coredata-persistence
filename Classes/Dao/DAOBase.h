@@ -45,8 +45,8 @@
 	NSString* entityName;
 }
 
-@property (nonatomic, retain) NSManagedObjectContext* managedObjectContext;
-@property (nonatomic, retain) NSString* entityName;
+@property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
+@property (nonatomic, strong) NSString* entityName;
 
 // initializes dao with given context
 -(id)initWithContext:(NSManagedObjectContext*)context;

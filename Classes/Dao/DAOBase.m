@@ -41,19 +41,19 @@
 @synthesize entityName;
 
 - (id <CDQueryTransformInterceptor>)newCriteriaInterceptor {
-	return [self retain];
+	return self;
 }
 
 - (void)registerInterceptor:(id <CDCriteria>)criteria {
 	CDSearchCriteria *sc = (CDSearchCriteria*)criteria;
-	[sc registerInterceptor:[[self newCriteriaInterceptor] autorelease]];
+	[sc registerInterceptor:[self newCriteriaInterceptor]];
 }
 
 - (NSFetchRequest*)createFetchRequest {
 	NSEntityDescription* entityDescritpion = [NSEntityDescription entityForName:entityName inManagedObjectContext:managedObjectContext];
 	NSFetchRequest* request = [[NSFetchRequest alloc] init];
 	[request setEntity:entityDescritpion];
-	return [request autorelease];
+	return request;
 }
 
 -(NSArray*)findAll {
@@ -187,11 +187,6 @@
 	return self;
 }
 
--(void)dealloc {
-	[managedObjectContext release];
-	[entityName release];
-	[super dealloc];
-}
 
 -(NSFetchedResultsController*)newFetchedResultsController:(CDSearchCriteria*)criteria sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)name {
 	[self registerInterceptor:criteria];
@@ -202,7 +197,7 @@
 }
 
 -(NSFetchedResultsController*)createFetchedResultsController:(CDSearchCriteria*)criteria sectionNameKeyPath:(NSString *)sectionNameKeyPath cacheName:(NSString *)name {
-	return [[self newFetchedResultsController:criteria sectionNameKeyPath:sectionNameKeyPath cacheName:name] autorelease];
+	return [self newFetchedResultsController:criteria sectionNameKeyPath:sectionNameKeyPath cacheName:name];
 }
 
 #pragma mark CDSearchCriteriaDelegate

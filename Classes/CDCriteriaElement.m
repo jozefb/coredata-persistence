@@ -39,15 +39,11 @@
 
 -(id)initWithProperty:(NSString*)prop {
 	if (self = [super init]) {
-		property = [prop retain];
+		property = prop;
 	}
 	
 	return self;
 }
 
--(void)dealloc {
-	[property release];
-	[super dealloc];
-}
 
 @end

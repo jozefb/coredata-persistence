@@ -76,12 +76,12 @@
 
 + (CDSearchCriteria*) criteria {
 	CDSearchCriteria* criteria = [[CDSearchCriteria alloc] init];
-	return [criteria autorelease];
+	return criteria;
 }
 
 +(CDSearchCriteria*) criteriaWithEntityName:(NSString*)entityName {
 	CDSearchCriteria* criteria = [[CDSearchCriteria alloc] initWithEntityName:entityName];
-	return [criteria autorelease];
+	return criteria;
 }
 
 -(id) init {	
@@ -100,13 +100,6 @@
 	return self;
 }
 
--(void)dealloc {
-	[_projections release];	 
-	[entityName release];
-	[_orders release];
-	[_filters release];
-	[super dealloc];
-}
 
 -(void)removeOrder:(CDOrder*)order {
 	[_orders removeObject:order];

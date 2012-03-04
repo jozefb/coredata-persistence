@@ -44,12 +44,12 @@
 	NSString* entityName;
 	BOOL readPropertyValues;
 	
-	id <CDQueryTransformInterceptor> interceptor;
+	id <CDQueryTransformInterceptor> __unsafe_unretained interceptor;
 }
 
 @property (nonatomic, copy) NSString* entityName;
 
-@property (nonatomic, readonly, assign) id <CDQueryTransformInterceptor> interceptor;
+@property (nonatomic, readonly, unsafe_unretained) id <CDQueryTransformInterceptor> interceptor;
 
 
 // 
