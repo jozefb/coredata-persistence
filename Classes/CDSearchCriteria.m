@@ -36,6 +36,11 @@
 #import "CDFilter.h"
 #import "CDProjection.h"
 
+@interface CDSearchCriteria ()
+
+@property (nonatomic, readwrite, weak) id <CDQueryTransformInterceptor> interceptor;
+
+@end
 
 @implementation CDSearchCriteria
 
@@ -47,7 +52,7 @@
 @synthesize interceptor;
 
 - (void)registerInterceptor:(id <CDQueryTransformInterceptor>) anInterceptor {
-	interceptor = anInterceptor;
+	self.interceptor = anInterceptor;
 }
 
 -(void)addOrder:(CDOrder*)order {

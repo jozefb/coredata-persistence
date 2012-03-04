@@ -36,7 +36,7 @@
 @protocol CDFunction <NSObject>
 
 // Function name
-@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, strong, readonly) NSString *name;
 // Function result type
 @property (nonatomic, readonly) NSAttributeType resultType;
 
@@ -45,10 +45,6 @@
 
 @interface CDFunction : CDCriteriaElement <CDFunction> {
 
-@private
-	NSString *_name;
-	// function result type
-	NSAttributeType _resultType;
 }
 
 // MIN function for given entity property - with result type

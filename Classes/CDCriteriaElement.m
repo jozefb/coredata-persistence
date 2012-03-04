@@ -32,6 +32,11 @@
 
 #import "CDCriteriaElement.h"
 
+@interface CDCriteriaElement ()
+
+@property (nonatomic, strong, readwrite) NSString* property;
+
+@end
 
 @implementation CDCriteriaElement
 
@@ -39,7 +44,7 @@
 
 -(id)initWithProperty:(NSString*)prop {
 	if (self = [super init]) {
-		property = prop;
+		self.property = prop;
 	}
 	
 	return self;

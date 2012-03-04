@@ -36,8 +36,6 @@
 
 @interface CDFunctionProjection : CDProjection {
 
-@private
-	CDFunction* _function;
 }
 
 @property (nonatomic, strong) CDFunction* function;
@@ -67,11 +65,11 @@
 
 @implementation CDFunctionProjection
 
-@synthesize function=_function;
+@synthesize function;
 
-- (id)initWithFunction:(CDFunction*)function {
+- (id)initWithFunction:(CDFunction*)func {
 	if (self = [super init]) {
-		_function = function;
+    	self.function = func;
 	}
 	
 	return self;

@@ -34,7 +34,7 @@
 
 @protocol CDCriteriaElement <NSObject>
 
-@property (nonatomic, readonly) NSString* property;
+@property (nonatomic, strong, readonly) NSString* property;
 
 @end
 

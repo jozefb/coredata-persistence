@@ -32,15 +32,20 @@
 
 #import "CDFunction.h"
 
+@interface CDFunction ()
+
+@property (nonatomic, strong, readwrite) NSString *name;
+
+@end
 
 @implementation CDFunction
 
-@synthesize name=_name, resultType=_resultType;
+@synthesize name, resultType;
 
--(id)initWithPropertyAndNameAndType:(NSString*)prop name:(NSString*)aName resultType:(NSAttributeType)resultType {
+-(id)initWithPropertyAndNameAndType:(NSString*)prop name:(NSString*)aName resultType:(NSAttributeType)resType {
 	if (self = [super initWithProperty:prop]) {
-		_name = aName;
-		_resultType = resultType;
+		self.name = aName;
+		resultType = resType;
 	}
 	
 	return self;
