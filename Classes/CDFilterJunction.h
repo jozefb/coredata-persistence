@@ -31,10 +31,9 @@
 //	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #import "CDCriteriaElement.h"
+#import "CDFilter.h"
 
-@class CDFilter;
-
-@protocol Junction
+@protocol Junction <CDFilter>
 
 -(id<Junction>)add:(CDFilter*)filter;
 
