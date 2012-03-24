@@ -94,17 +94,17 @@ static NSString* storeType;
  	return factory;
 }
 
--(DAO*)newDAO:(Class)daoType {
+-(id)newDAO:(Class)daoType {
 	DAO *dao = [[daoType alloc] initWithContext:self.managedObjectContext];
 	return dao;
 }
 
--(DAO*)newRuntimeDAO:(NSString*)entityName {
+-(id)newRuntimeDAO:(NSString*)entityName {
 	DAO *dao = [[RuntimeDAO alloc] initWithContextAndEntityName:self.managedObjectContext entityName:entityName];
 	return dao;
 }
 
--(DAO*)createDAO:(NSString*)entityName {
+-(id)createDAO:(NSString*)entityName {
 	DAO *dao = [[RuntimeDAO alloc] initWithContextAndEntityName:self.managedObjectContext entityName:entityName];
 	return dao;
 }

@@ -64,17 +64,17 @@
 /**
  * Creates DAO object for given DAO type
  */
--(DAO*)newDAO:(Class)daoType;
+-(id)newDAO:(Class)daoType;
 
 /**
  * Creates runtime DAO object for given entity name.
  */
--(DAO*)newRuntimeDAO:(NSString*)entityName;
+-(id)newRuntimeDAO:(NSString*)entityName;
 
 /**
  * Creates autoreleased runtime DAO object for given entity name.
  */
--(DAO*)createDAO:(NSString*)entityName;
+-(id)createDAO:(NSString*)entityName;
 
 // See NSManagedObjectContext
 -(BOOL)save:(NSError**)error;
