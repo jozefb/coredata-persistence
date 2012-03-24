@@ -35,11 +35,11 @@
 
 @protocol Junction <CDFilter>
 
--(id<Junction>)add:(CDFilter*)filter;
+-(id<Junction>)add:(id<CDFilter>)filter;
 
 @end
 
-@interface CDFilterJunction : CDCriteriaElement <Junction> {
+@interface CDFilterJunction : CDFilter <Junction> {
 	
 	NSMutableArray* filters;
 

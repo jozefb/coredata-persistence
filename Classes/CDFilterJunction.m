@@ -37,7 +37,7 @@
 
 @synthesize filters;
 
--(id<Junction>)add:(CDFilter*)filter {
+-(id<Junction>)add:(id<CDFilter>)filter {
 	if (self.filters == nil) {
 		filters = [[NSMutableArray alloc] initWithCapacity:1];
 	}
