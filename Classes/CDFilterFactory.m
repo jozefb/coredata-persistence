@@ -38,6 +38,25 @@
 #import "CDFilterConjunction.h"
 #import "CDLikeFilter.h"
 #import "CDNullFilter.h"
+#import "CDAnyFilter.h"
+#import "CDAllFilter.h"
+#import "CDContainsFilter.h"
+
+@interface CDAnyFilter ()
+
+@property (nonatomic, readwrite, retain) CDFilter * filter;
+
+- (id)initWithFilter:(CDFilter *)filter;
+
+@end
+
+@interface CDAllFilter ()
+
+@property (nonatomic, readwrite, retain) CDFilter * filter;
+
+- (id)initWithFilter:(CDFilter *)filter;
+
+@end
 
 @implementation CDFilterFactory
 
@@ -97,6 +116,73 @@
 +(CDFilter*)inValues:(NSString*)property values:(NSArray*)values {
 	CDFilter* filter = [[CDOperatorFilter alloc] initWithPropertyAndValue:property value:values operatorType:CDFilterOperatorIn];
 	return filter;
+}
+
+//  Creates "ANY property filter
++ (CDFilter*)any:(CDFilter*)filter {
+    CDFilter* result = [[CDAnyFilter alloc] initWithFilter:filter];
+	return result;
+}
+
+//  Creates "ALL property filter
++ (CDFilter*)all:(CDFilter*)filter {
+    CDFilter* result = [[CDAllFilter alloc] initWithFilter:filter];
+	return result;
+}
+
+//  Creates contains filter
++ (CDFilter*)contains:(NSString*)aProperty value:(id)value {
+    CDFilter* filter = [[CDContainsFilter alloc] initWithPropertyAndValue:aProperty value:value];
+	return filter;
+}
+
+//  Creates contains filter
++ (CDFilter*)contains:(NSString*)aProperty value:(id)value caseSensitive:(BOOL)caseSensitive {
+    CDContainsFilter* filter = [[CDContainsFilter alloc] initWithPropertyAndValue:aProperty value:value];
+    filter.caseSensitive = caseSensitive;
+	return filter;
+}
+@end
+
+
+@implementation CDAnyFilter
+
+@synthesize filter;
+
+- (id)initWithFilter:(CDFilter *)aFilter {
+    if (self = [super initWithProperty:aFilter.property values:aFilter.bindValues]) {
+        self.filter = aFilter;
+    }
+    
+    return self;
+}
+
+-(NSPredicate*)createPredicate {
+    NSString * format = [[self.filter createPredicate] predicateFormat];
+	NSPredicate* predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"any %@", format]];
+    format = [predicate predicateFormat];
+	return  predicate;
+}
+
+@end
+
+@implementation CDAllFilter
+
+@synthesize filter;
+
+- (id)initWithFilter:(CDFilter *)aFilter {
+    if (self = [super initWithProperty:aFilter.property values:aFilter.bindValues]) {
+        self.filter = aFilter;
+    }
+    
+    return self;
+}
+
+-(NSPredicate*)createPredicate {
+    NSString * format = [[self.filter createPredicate] predicateFormat];
+	NSPredicate* predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"all %@", format]];
+    format = [predicate predicateFormat];
+	return  predicate;
 }
 
 @end

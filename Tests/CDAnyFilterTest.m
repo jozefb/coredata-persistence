@@ -1,7 +1,7 @@
 //
 //  Persistence
 //
-//  Created by Ing. Jozef Bozek on 29.5.2009.
+//  Created by Ing. Jozef Bozek on 27.3.2012.
 //
 //	Copyright © 2010 bring-it-together s.r.o.. All Rights Reserved.
 // 
@@ -30,32 +30,45 @@
 //	OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 //	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#import "CDFilter.h"
+#import <GHUnitIOS/GHUnit.h>
+#import "CDSearchCriteria.h"
+#import "CDAnyFilter.h"
+#import "CDOrder.h"
+#import "CDFunction.h"
+#import "CDFilterFactory.h"
 
-typedef enum _CDFilterOperatorType { 
-	CDFilterOperatorEqual = 1,
-	CDFilterOperatorGreather = 2,
-	CDFilterOperatorGreatherOrEqual = 3,
-	CDFilterOperatorLess = 4,
-	CDFilterOperatorLessOrEqual = 5,
-	CDFilterOperatorNotEqual = 6,
-	CDFilterOperatorLike = 7,
-	CDFilterOperatorIn = 8,
-    CDFilterOperatorContains = 9,
-	
-} CDFilterOperatorType;
-
-	
-
-@interface CDOperatorFilter : CDFilter {
-
-	CDFilterOperatorType operatorType;
-
+@interface CDAnyFilterTest : GHTestCase {
+    
 }
 
-@property (nonatomic, readonly) CDFilterOperatorType operatorType;
+@end
 
--(id)initWithPropertyAndValue:(NSString*)property value:(id)value operatorType:(CDFilterOperatorType)operatorType;
--(NSString*)operatorString;
+
+@implementation CDAnyFilterTest
+
+- (BOOL)shouldRunOnMainThread { return YES; }
+
+- (void)setUp {
+	
+}
+
+- (void)tearDown {
+	
+}
+
+- (void)testAnyFilter {	
+	CDFilter* filter1 = [CDFilter equals:@"prop" value:@"xyz"];
+    CDFilter * filter = [CDFilterFactory any:filter1];
+	GHAssertEquals(@"prop", filter.property, nil);
+	
+	NSPredicate* predicate = [filter createPredicate];
+	GHAssertNotNil(predicate, nil);
+	NSString* format = [predicate predicateFormat];
+	GHAssertNotNil(format, nil);
+	
+	NSRange range = [format rangeOfString:@"ANY prop == \"xyz\""];
+	GHAssertEquals((NSUInteger)0, range.location, nil);
+}
+
 
 @end

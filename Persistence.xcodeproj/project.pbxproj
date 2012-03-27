@@ -93,6 +93,12 @@
 		F2A9414515041ECE00589369 /* Child.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A9414315041ECE00589369 /* Child.m */; };
 		F2A9414815041ECF00589369 /* TestEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = F2A9414615041ECF00589369 /* TestEntity.h */; };
 		F2A9414915041ECF00589369 /* TestEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A9414715041ECF00589369 /* TestEntity.m */; };
+		F2B0414F1521F87500616225 /* CDAnyFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = F2B0414E1521F87500616225 /* CDAnyFilter.h */; };
+		F2B041531521FB3600616225 /* CDAnyFilterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B041521521FB3600616225 /* CDAnyFilterTest.m */; };
+		F2B28FFE15221AE500E16531 /* CDAllFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = F2B28FFD15221AE500E16531 /* CDAllFilter.h */; };
+		F2B2900215221CFA00E16531 /* CDContainsFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = F2B2900015221CF900E16531 /* CDContainsFilter.h */; };
+		F2B2900315221CFA00E16531 /* CDContainsFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B2900115221CFA00E16531 /* CDContainsFilter.m */; };
+		F2B2900415221D9F00E16531 /* CDContainsFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B2900115221CFA00E16531 /* CDContainsFilter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +182,11 @@
 		F2A9414315041ECE00589369 /* Child.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Child.m; sourceTree = "<group>"; };
 		F2A9414615041ECF00589369 /* TestEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestEntity.h; sourceTree = "<group>"; };
 		F2A9414715041ECF00589369 /* TestEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestEntity.m; sourceTree = "<group>"; };
+		F2B0414E1521F87500616225 /* CDAnyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDAnyFilter.h; path = Classes/CDAnyFilter.h; sourceTree = "<group>"; };
+		F2B041521521FB3600616225 /* CDAnyFilterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAnyFilterTest.m; sourceTree = "<group>"; };
+		F2B28FFD15221AE500E16531 /* CDAllFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDAllFilter.h; path = Classes/CDAllFilter.h; sourceTree = "<group>"; };
+		F2B2900015221CF900E16531 /* CDContainsFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDContainsFilter.h; path = Classes/CDContainsFilter.h; sourceTree = "<group>"; };
+		F2B2900115221CFA00E16531 /* CDContainsFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDContainsFilter.m; path = Classes/CDContainsFilter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +264,7 @@
 				C9B0264E1039DA02007A11D0 /* Includes */,
 				C98BBFE41039F61A00E63F84 /* Dao */,
 				C92F1F691038A597006B0A86 /* CDCriteriaElement.m */,
+				F2B2900115221CFA00E16531 /* CDContainsFilter.m */,
 				C92F1F7B1038A597006B0A86 /* CDOrder.m */,
 				C92F1F6B1038A597006B0A86 /* CDEqualFilter.m */,
 				C92F1F6D1038A597006B0A86 /* CDFilter.m */,
@@ -313,6 +325,7 @@
 				F2A9414715041ECF00589369 /* TestEntity.m */,
 				F2A9414215041ECE00589369 /* Child.h */,
 				F2A9414315041ECE00589369 /* Child.m */,
+				F2B041521521FB3600616225 /* CDAnyFilterTest.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -345,6 +358,8 @@
 		C9B0264E1039DA02007A11D0 /* Includes */ = {
 			isa = PBXGroup;
 			children = (
+				F2B28FFD15221AE500E16531 /* CDAllFilter.h */,
+				F2B0414E1521F87500616225 /* CDAnyFilter.h */,
 				C97B15DA11285052002AD48D /* CDFilterFactory.h */,
 				C98BBFCD1039F5B200E63F84 /* DAO.h */,
 				C9B0264F1039DA25007A11D0 /* Persistence.h */,
@@ -356,6 +371,7 @@
 				C92F1F701038A597006B0A86 /* CDFilterDisjunction.h */,
 				C92F1F721038A597006B0A86 /* CDFilterJunction.h */,
 				C9AD9573109CC0B6000B71DA /* CDFunction.h */,
+				F2B2900015221CF900E16531 /* CDContainsFilter.h */,
 				C92F1F761038A597006B0A86 /* CDLikeFilter.h */,
 				C9284DD11081D92C008567C6 /* CDNullFilter.h */,
 				C92F1F781038A597006B0A86 /* CDOperatorFilter.h */,
@@ -399,6 +415,9 @@
 				C9E1E39413845EFC00D54FBD /* Tests-Prefix.pch in Headers */,
 				F2A9414415041ECE00589369 /* Child.h in Headers */,
 				F2A9414815041ECF00589369 /* TestEntity.h in Headers */,
+				F2B0414F1521F87500616225 /* CDAnyFilter.h in Headers */,
+				F2B28FFE15221AE500E16531 /* CDAllFilter.h in Headers */,
+				F2B2900215221CFA00E16531 /* CDContainsFilter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +527,8 @@
 				C9113D74109CCB5E00F0134B /* CDProjectionTestCase.m in Sources */,
 				C9113DFB109CD59500F0134B /* CDFunctionTestCase.m in Sources */,
 				C9E1E25A13844F1C00D54FBD /* GHUnitIOSTestMain.m in Sources */,
+				F2B041531521FB3600616225 /* CDAnyFilterTest.m in Sources */,
+				F2B2900415221D9F00E16531 /* CDContainsFilter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +555,7 @@
 				C97B15DE11285062002AD48D /* CDFilterFactory.m in Sources */,
 				F2A9414515041ECE00589369 /* Child.m in Sources */,
 				F2A9414915041ECF00589369 /* TestEntity.m in Sources */,
+				F2B2900315221CFA00E16531 /* CDContainsFilter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

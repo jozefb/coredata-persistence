@@ -85,6 +85,9 @@
 		case CDFilterOperatorIn:
 			result = @"in";
 			break;
+        case CDFilterOperatorContains:
+			result = @"contains";
+			break;
 		default:
 			result = @"=";
 			break;

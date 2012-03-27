@@ -51,6 +51,15 @@
 	return self;
 }
 
+-(id)initWithProperty:(NSString*)aProperty values:(NSArray*)values {
+	if (self = [super initWithProperty:aProperty]) {
+		if (_bindValues == nil) {
+			_bindValues = [[NSMutableArray alloc] initWithArray:values];
+		}
+	}
+	
+	return self;
+}
 
 +(CDFilter*)equals:(NSString*)aProperty value:(id)aValue {
 	return [CDFilterFactory equals:aProperty value:aValue];

@@ -1,7 +1,8 @@
 //
+//  CDAllFilter.h
 //  Persistence
 //
-//  Created by Ing. Jozef Bozek on 29.5.2009.
+//  Created by Ing. Jozef Bozek on 27.3.2012.
 //
 //	Copyright © 2010 bring-it-together s.r.o.. All Rights Reserved.
 // 
@@ -32,30 +33,8 @@
 
 #import "CDFilter.h"
 
-typedef enum _CDFilterOperatorType { 
-	CDFilterOperatorEqual = 1,
-	CDFilterOperatorGreather = 2,
-	CDFilterOperatorGreatherOrEqual = 3,
-	CDFilterOperatorLess = 4,
-	CDFilterOperatorLessOrEqual = 5,
-	CDFilterOperatorNotEqual = 6,
-	CDFilterOperatorLike = 7,
-	CDFilterOperatorIn = 8,
-    CDFilterOperatorContains = 9,
-	
-} CDFilterOperatorType;
+@interface CDAllFilter : CDFilter
 
-	
-
-@interface CDOperatorFilter : CDFilter {
-
-	CDFilterOperatorType operatorType;
-
-}
-
-@property (nonatomic, readonly) CDFilterOperatorType operatorType;
-
--(id)initWithPropertyAndValue:(NSString*)property value:(id)value operatorType:(CDFilterOperatorType)operatorType;
--(NSString*)operatorString;
+@property (nonatomic, readonly, retain) CDFilter * filter;
 
 @end

@@ -99,7 +99,7 @@
 +(CDFilter*)inValues:(NSString*)property values:(NSArray*)values;
 
 -(id)initWithPropertyAndValue:(NSString*)aProperty value:(id)filterValue;
-
+-(id)initWithProperty:(NSString*)aProperty values:(NSArray*)values;
 
 @end
 

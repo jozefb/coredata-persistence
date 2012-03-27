@@ -49,6 +49,10 @@
 + (CDFilter*)equals:(NSString*)aProperty value:(id)value;
 //  Creates not equals filter
 + (CDFilter*)notEquals:(NSString*)aProperty value:(id)value;
+//  Creates contains filter
++ (CDFilter*)contains:(NSString*)aProperty value:(id)value;
+//  Creates contains filter
++ (CDFilter*)contains:(NSString*)aProperty value:(id)value caseSensitive:(BOOL)caseSensitive;
 
 //  Creates "property < value" filter
 + (CDFilter*)less:(NSString*)aProperty value:(id)value;
@@ -70,5 +74,11 @@
 
 //  Creates "property IN values" filter
 + (CDFilter*)inValues:(NSString*)property values:(NSArray*)values;
+
+//  Creates "ANY property filter
++ (CDFilter*)any:(CDFilter*)filter;
+
+//  Creates "ALL property filter
++ (CDFilter*)all:(CDFilter*)filter;
 
 @end
