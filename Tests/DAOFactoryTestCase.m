@@ -80,7 +80,7 @@
 	[object2 setName:@"te2"];
 	[object2 setIntProperty:[NSNumber numberWithInt:20]];
 	[object2 addChildsObject:child];
-	
+//	/[[DAOFactory factory] save];
 }
 
 //! Run after the tests (once per test case)
@@ -255,6 +255,28 @@
 	data = [dao findAll:criteria];
 	GHAssertNotNil(data, nil);
 	GHAssertEquals((NSUInteger)0, [data count], nil);
+	
+	
+}
+
+- (void)testNotFilter {
+	
+	DAO *dao = [[DAOFactory factory] createDAO:@"TestEntity"];
+	DAO *daoChild = [[DAOFactory factory] createDAO:@"Child"];
+	
+	NSArray *data = [dao findAll];
+	GHAssertNotNil(data, nil);
+	GHAssertTrue([data count] > 0, nil);
+	
+	NSArray *dataChilds = [daoChild findAll];
+	GHAssertNotNil(dataChilds, nil);
+	GHAssertTrue([dataChilds count] > 0, nil);
+	
+	CDSearchCriteria *criteria = [CDSearchCriteria criteria];
+	[criteria addFilter:[CDFilterFactory not:[CDFilterFactory inValues:@"name" values:[NSArray arrayWithObjects:@"aaa", nil]]]];
+	data = [dao findAll:criteria];
+	GHAssertNotNil(data, nil);
+	GHAssertEquals((NSUInteger)2, [data count], nil);
 	
 	
 }
