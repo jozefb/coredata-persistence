@@ -76,10 +76,8 @@
 }
 
 - (NSPropertyDescription*)createPropertyDescription:(NSDictionary *)entityProperties {
-	// Expression for the key path.
-	NSExpression *keyPathExpression = [NSExpression expressionForKeyPath:self.function.property];	
 	// Expression for func
-	NSExpression *funcExpression = [NSExpression expressionForFunction:self.function.name arguments:[NSArray arrayWithObject:keyPathExpression]];
+	NSExpression *funcExpression = [self.function createExpression];
 	
 	NSExpressionDescription *result = [[NSExpressionDescription alloc] init];
 	[result setName:[NSString stringWithFormat:@"%@%@", self.function.name, self.function.property]];

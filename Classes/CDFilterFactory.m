@@ -58,6 +58,14 @@
 
 @end
 
+@interface CDNotFilter : CDFilter
+
+@property (nonatomic, readwrite, retain) CDFilter * filter;
+
+- (id)initWithFilter:(CDFilter *)filter;
+
+@end
+
 @implementation CDFilterFactory
 
 +(CDFilter*)equals:(NSString*)aProperty value:(id)aValue {
@@ -142,6 +150,12 @@
     filter.caseSensitive = caseSensitive;
 	return filter;
 }
+
++ (CDFilter*)not:(CDFilter*)filter {
+    CDFilter* result = [[CDNotFilter alloc] initWithFilter:filter];
+	return result;
+}
+
 @end
 
 
@@ -160,7 +174,7 @@
 -(NSPredicate*)createPredicate {
     NSString * format = [[self.filter createPredicate] predicateFormat];
 	NSPredicate* predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"any %@", format]];
-    format = [predicate predicateFormat];
+    //format = [predicate predicateFormat];
 	return  predicate;
 }
 
@@ -181,7 +195,27 @@
 -(NSPredicate*)createPredicate {
     NSString * format = [[self.filter createPredicate] predicateFormat];
 	NSPredicate* predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"all %@", format]];
-    format = [predicate predicateFormat];
+    //format = [predicate predicateFormat];
+	return  predicate;
+}
+@end
+
+@implementation CDNotFilter
+
+@synthesize filter;
+
+- (id)initWithFilter:(CDFilter *)aFilter {
+    if (self = [super initWithProperty:aFilter.property values:aFilter.bindValues]) {
+        self.filter = aFilter;
+    }
+    
+    return self;
+}
+
+-(NSPredicate*)createPredicate {
+    NSString * format = [[self.filter createPredicate] predicateFormat];
+	NSPredicate* predicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"not %@", format]];
+    //format = [predicate predicateFormat];
 	return  predicate;
 }
 

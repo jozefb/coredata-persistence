@@ -32,6 +32,7 @@
 //	OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 @class CDFilter;
+@class CDFunction;
 @class CDFilterJunction;
 @class CDFilterDisjunction;
 @class CDFilterConjunction;
@@ -80,5 +81,11 @@
 
 //  Creates "ALL property filter
 + (CDFilter*)all:(CDFilter*)filter;
+
+//  Creates "NOT filter
++ (CDFilter*)not:(CDFilter*)filter;
+
+//  Creates equals filter
+///+ (CDFilter*)equals:(CDFunction*)function value:(id)value;
 
 @end

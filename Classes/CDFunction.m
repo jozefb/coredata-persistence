@@ -51,6 +51,15 @@
 	return self;
 }
 
+// Expression for function
+- (NSExpression*)createExpression {
+	// Expression for the key path.
+	NSExpression *keyPathExpression = [NSExpression expressionForKeyPath:self.property];	
+	// Expression for func
+	NSExpression *funcExpression = [NSExpression expressionForFunction:self.name arguments:[NSArray arrayWithObject:keyPathExpression]];
+	return funcExpression;
+}
+
 // MIN function for given entity property
 + (CDFunction*)min:(NSString*)property resultType:(NSAttributeType)resultType {
 	CDFunction *function = [[CDFunction alloc] initWithPropertyAndNameAndType:property name:@"min:" resultType:resultType];
@@ -75,7 +84,9 @@
 	return function;
 }
 
-
++ (CDFunction*)count:(NSString*)property {
+    return nil;
+}
 
 
 @end

@@ -59,5 +59,16 @@
 // LOWER function for given entity property - with result type
 + (CDFunction*)lower:(NSString*)property resultType:(NSAttributeType)resultType;
 
+// @COUNT function for given entity property - with NSInteger32AttributeType type
++ (CDFunction*)count:(NSString*)property;
+
+
 
 @end
+
+@interface CDFunction (CoreData) 
+
+-(NSExpression*)createExpression;
+
+@end
+
