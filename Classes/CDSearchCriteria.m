@@ -91,8 +91,8 @@
 }
 
 -(id) init {	
-	if (!(self = [self initWithEntityName:nil])) {
-		self.returnObjectsAsFaults = YES;	
+	if (self = [self initWithEntityName:nil]) {
+		
 	}
 		
 	return self;
@@ -101,6 +101,7 @@
 -(id) initWithEntityName:(NSString*)theEntityName {
 	if (self = [super init]) {
 		self.entityName = theEntityName;
+        self.returnObjectsAsFaults = YES;
 	}
 	
 	return self;
