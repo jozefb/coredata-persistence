@@ -49,6 +49,7 @@
 @synthesize entityName;
 @synthesize projections=_projections;
 @synthesize readPropertyValues;
+@synthesize returnObjectsAsFaults;
 @synthesize interceptor;
 
 - (void)registerInterceptor:(id <CDQueryTransformInterceptor>) anInterceptor {
@@ -91,7 +92,7 @@
 
 -(id) init {	
 	if (!(self = [self initWithEntityName:nil])) {
-		
+		self.returnObjectsAsFaults = YES;	
 	}
 		
 	return self;
@@ -132,6 +133,7 @@
 	
 	NSFetchRequest* request = [interceptor createFetchRequest];
 	[request setIncludesPropertyValues:self.readPropertyValues];
+    [request setReturnsObjectsAsFaults:self.returnObjectsAsFaults];
 	
 	if ([self hasOrders]) {
 		NSMutableArray* sorts = [NSMutableArray arrayWithCapacity:[self.orders count]];

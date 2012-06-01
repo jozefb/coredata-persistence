@@ -43,6 +43,7 @@
 @property (nonatomic, readonly) NSArray* filters;
 @property (nonatomic, readonly) NSArray* projections;
 @property (nonatomic, assign) BOOL readPropertyValues;
+@property (nonatomic, assign) BOOL returnObjectsAsFaults;
 
 -(void)addOrder:(CDOrder*)order;
 -(void)addFilter:(CDFilter*)filter;	
