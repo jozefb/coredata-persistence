@@ -54,6 +54,9 @@
 // initializes dao with given context and entity name
 -(id)initWithContextAndEntityName:(NSManagedObjectContext*)context entityName:(NSString*)entityName;
 
+// initializes dao with given context and entity class
+-(id)initWithContextAndEntityName:(NSManagedObjectContext*)context entityClass:(Class)entityClass;
+
 // registers query transform interceptor for given criteria
 - (void)registerInterceptor:(id <CDCriteria>)criteria;
 
