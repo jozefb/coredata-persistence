@@ -178,6 +178,10 @@
 	return self;
 }
 
+-(id)initWithContextAndEntityName:(NSManagedObjectContext*)context entityClass:(Class)entityClass {
+    return [self initWithContextAndEntityName:context entityName:NSStringFromClass(entityClass)];
+}
+
 -(id)initWithContext:(NSManagedObjectContext*)context {
     self = [self initWithContextAndEntityName:context entityName:nil];
 	if (self) {
