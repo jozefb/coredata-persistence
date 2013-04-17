@@ -59,6 +59,8 @@
 @property (nonatomic, strong, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic, unsafe_unretained) NSUndoManager* undoManager;
 
+- (void)registerManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
+
 - (NSString *)applicationDocumentsDirectory;
 
 /**

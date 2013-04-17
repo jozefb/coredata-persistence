@@ -46,10 +46,6 @@
 
 @implementation DAOFactory
 
-@synthesize managedObjectModel;
-@synthesize managedObjectContext;
-@synthesize persistentStoreCoordinator;
-
 static DAOFactory* factory;
 static NSString* storePath;
 static NSString* storeType;
@@ -110,13 +106,13 @@ static NSString* storeType;
 }
 
 -(BOOL)save:(NSError**)error {
-	BOOL result = [managedObjectContext save:error];
+	BOOL result = [self.managedObjectContext save:error];
 	return result;
 }
 
 -(BOOL)save {
 	NSError* error = nil;
-	BOOL result = [managedObjectContext save:&error];
+	BOOL result = [self.managedObjectContext save:&error];
 	if (!result) {
 		LOG_ERROR(error);
 	}
@@ -124,19 +120,19 @@ static NSString* storeType;
 }
 
 - (void)undo{
-	[managedObjectContext undo];
+	[self.managedObjectContext undo];
 }
 
 - (void)redo{
-	[managedObjectContext redo];
+	[self.managedObjectContext redo];
 }
 
 - (void)reset{
-	[managedObjectContext reset];
+	[self.managedObjectContext reset];
 }
 
 - (void)rollback {
-	[managedObjectContext rollback];
+	[self.managedObjectContext rollback];
 }
 
 -(NSUndoManager*)undoManager {
@@ -148,50 +144,8 @@ static NSString* storeType;
 }
 
 
-
-
-/**
- Returns the managed object context for the application.
- If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
- */
-- (NSManagedObjectContext *) managedObjectContext {
-	
-    if (managedObjectContext != nil) {
-        return managedObjectContext;
-    }
-	
-    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-    if (coordinator != nil) {
-        managedObjectContext = [[NSManagedObjectContext alloc] init];
-        [managedObjectContext setPersistentStoreCoordinator: coordinator];
-    }
-    return managedObjectContext;
-}
-
-/**
- Returns the managed object model for the application.
- If the model doesn't already exist, it is created by merging all of the models found in the application bundle.
- */
-- (NSManagedObjectModel *)managedObjectModel {
-	
-    if (managedObjectModel != nil) {
-        return managedObjectModel;
-    }
-    self.managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
-    return managedObjectModel;
-}
-
-/**
- Returns the persistent store coordinator for the application.
- If the coordinator doesn't already exist, it is created and the application's store added to it.
- */
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
-	
-    if (persistentStoreCoordinator != nil) {
-        return persistentStoreCoordinator;
-    }
-	
-	NSString* storePathTmp = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:[DAOFactory storePath]];
+- (BOOL)setupCoreDataStack {
+    NSString* storePathTmp = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:[DAOFactory storePath]];
 	
 	NSFileManager* fileManager = [NSFileManager defaultManager];
 	if (![fileManager fileExistsAtPath:storePathTmp]) {
@@ -202,8 +156,8 @@ static NSString* storeType;
 			NSString* comp = [comps objectAtIndex:i];
 			[compsString appendString:comp];
 			if (i < comps.count - 2) {
-				[compsString appendString:@"."];	
-			}			
+				[compsString appendString:@"."];
+			}
 		}
 		
 		NSString* resType = [comps objectAtIndex:comps.count - 1];
@@ -212,8 +166,9 @@ static NSString* storeType;
             NSError* error;
             if (![fileManager copyItemAtPath:path toPath:storePathTmp error:&error]) {
                 LOG_ERROR(error);
-            } 
-        }		
+                return NO;
+            }
+        }
 	}
 	
     NSURL *storeUrl = [NSURL fileURLWithPath: storePathTmp];
@@ -222,13 +177,67 @@ static NSString* storeType;
 	if (storeType == nil) {
 		[DAOFactory setStoreType:NSSQLiteStoreType];
 	}
-    persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
-    if (![persistentStoreCoordinator addPersistentStoreWithType:[DAOFactory storeType] configuration:nil URL:storeUrl options:nil error:&error]) {
+    
+    _managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
+    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: _managedObjectModel];
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:[DAOFactory storeType] configuration:nil URL:storeUrl options:nil error:&error]) {
         // Handle error
 		LOG_ERROR(error);
-    }    
+        return NO;
+    }
+    
+    return YES;
+}
+
+
+/**
+ Returns the managed object context for the application.
+ If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
+ */
+- (NSManagedObjectContext *) managedObjectContext {
 	
-    return persistentStoreCoordinator;
+    if (_managedObjectContext == nil) {
+        [self setupCoreDataStack];
+        NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+        if (coordinator != nil) {
+            _managedObjectContext = [[NSManagedObjectContext alloc] init];
+            [_managedObjectContext setPersistentStoreCoordinator: coordinator];
+        }
+    }
+	
+    return _managedObjectContext;
+}
+
+- (void)registerManagedObjectContext:(NSManagedObjectContext *)managedObjectContext {
+    [self willChangeValueForKey:@"managedObjectContext"];
+    _managedObjectContext = managedObjectContext;
+    [self didChangeValueForKey:@"managedObjectContext"];
+}
+
+/**
+ Returns the managed object model for the application.
+ If the model doesn't already exist, it is created by merging all of the models found in the application bundle.
+ */
+- (NSManagedObjectModel *)managedObjectModel {
+	
+    if (_managedObjectModel == nil) {
+        [self setupCoreDataStack];
+    }
+    
+    return _managedObjectModel;
+}
+
+/**
+ Returns the persistent store coordinator for the application.
+ If the coordinator doesn't already exist, it is created and the application's store added to it.
+ */
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
+	
+    if (_persistentStoreCoordinator == nil) {
+        [self setupCoreDataStack];
+    }
+	
+    return _persistentStoreCoordinator;
 }
 
 #pragma mark Application's documents directory
