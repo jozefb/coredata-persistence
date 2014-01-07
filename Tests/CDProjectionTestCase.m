@@ -65,6 +65,14 @@
 	
 }
 
+- (void)testCreateWithCount {
+	CDFunction* function = [CDFunction count:@"childs"];
+	CDProjection* projection = [CDProjection createWithFunction:function];
+	GHAssertNotNil(projection, nil);
+	GHAssertNil(projection.property, nil);
+	
+}
+
 - (void)testCreatePropertyDescription_PropertyProjection {
 
 	CDProjection* projection = [CDProjection createWithProperty:@"name"];

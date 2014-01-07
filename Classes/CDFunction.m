@@ -85,7 +85,8 @@
 }
 
 + (CDFunction*)count:(NSString*)property {
-    return nil;
+    CDFunction *function = [[CDFunction alloc] initWithPropertyAndNameAndType:property name:@"count:" resultType:NSInteger32AttributeType];
+	return function;
 }
 
 

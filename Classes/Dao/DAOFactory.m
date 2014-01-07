@@ -39,8 +39,6 @@
 @interface DAOFactory () 
 
 @property (nonatomic, strong, readwrite) NSManagedObjectModel *managedObjectModel;
-@property (nonatomic, strong, readwrite) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, strong, readwrite) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 @end
 
@@ -49,9 +47,16 @@
 static DAOFactory* factory;
 static NSString* storePath;
 static NSString* storeType;
+static NSDictionary* options;
 
 +(void)initialize {
 	factory = [[DAOFactory alloc] init];
+}
+
++ (void)setStoreOptions:(NSDictionary *)_options {
+    if (options != _options) {
+		options = [_options copy];
+	}
 }
 
 + (void)setStorePath:(NSString*)path {
@@ -180,7 +185,8 @@ static NSString* storeType;
     
     _managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: _managedObjectModel];
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:[DAOFactory storeType] configuration:nil URL:storeUrl options:nil error:&error]) {
+    
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:[DAOFactory storeType] configuration:nil URL:storeUrl options:options error:&error]) {
         // Handle error
 		LOG_ERROR(error);
         return NO;

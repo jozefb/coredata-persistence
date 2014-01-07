@@ -46,6 +46,7 @@
 + (DAOFactory*)factory;
 // setter for store type - defaul NSSQLiteStoreType
 + (void)setStorePath:(NSString*)storePath;
++ (void)setStoreOptions:(NSDictionary *)options;
 + (void)setStoreType:(NSString*)storeType;
 + (NSString*)storePath;
 + (NSString*)storeType;
@@ -55,9 +56,9 @@
 /** 
  * TODO - volitelne subcontexty pre novovytvarane DAO
  */
-@property (nonatomic, strong, readonly) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, strong, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-@property (nonatomic, unsafe_unretained) NSUndoManager* undoManager;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (nonatomic, strong) NSUndoManager* undoManager;
 
 - (void)registerManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 
