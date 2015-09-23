@@ -38,7 +38,7 @@
 
 @interface CDSearchCriteria ()
 
-@property (nonatomic, readwrite, weak) id <CDQueryTransformInterceptor> interceptor;
+@property (nonatomic, readwrite, assign) id <CDQueryTransformInterceptor> interceptor;
 
 @end
 
