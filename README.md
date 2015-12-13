@@ -6,7 +6,7 @@ It is designed for the common usage scenarios, where it is sufficient the Core D
 
 It covers the base Core Data Framework functionality by using the common patterns: DAO (Data Access Object) and Factory.
 
-##Introduction
+## Introduction
 Persistence has been implemented for the simplification and making easier the work with Core Data Framework and represents its light object wrapper.
 
 It is designed for the common usage scenarios, where it is sufficient the Core Data stack handling and the basic object (objects graph) querying or possibble using of projection for some of the attributes of the managed objects.
@@ -28,7 +28,7 @@ At the very beginning you need to set the store data file path and its store typ
 File test.sqlite is empty or prefilled database file located inside the Resources group (Xcode). 
 The file will by automatically copied for the first time into the Documents folder of the application.
 
-##DAOFactory
+## DAOFactory
 Its used for dynamic DAO creation of RuntimeDAO objects or descendants the DAOBase class.
 ```objc
         DAOFactory *factory = [DAOFactory factory];
@@ -81,3 +81,46 @@ DAO class with its protocol defines generic methods for managed object manipulat
 // if flag is NO, simply refaults an object without merging (which also causes other related managed objects to be released, so you can use this method to trim the portion of your object graph you want to hold in memory) 
 - (void)refreshObject:(NSManagedObject *)object mergeChanges:(BOOL)flag;
 ```
+## Cocoa predicates - querying
+As the base class for managed objects querying serves the CDSearchCriteria class, which is simply the holder for the 'filters', 'orders 'and 'projections'. All of the classes appropriate to the criteria contain factory methods for the instantiation of the required criteria objects.
+### Filters
+The Filters are used as the predicates for the restriction of the query's results. The filters are represented by the *CDFilter* class (and its subclasses). All of the Core Data predicates (such as _beginswith_, _ANY_, _ALL_ operators… ) are not supported in this current version.
+```objc
+        CDSearchCriteria *criteria = [CDSearchCriteria criteria];
+        [criteria addFilter:[CDFilter like:@"stringProperty1" value:@"abc*" caseSensitive:NO]];
+        [criteria addFilter:[CDFilter isNotNull:@"timeStamp"]];
+```
+### Orders
+The Orders are used to order the query's results. An order is represented by the *CDOrder*, which is quite simple class.
+```objc
+        CDSearchCriteria *criteria = [CDSearchCriteria criteria];
+        [criteria addOrder:[CDOrder ascendingOrder:@"timeStamp"]];
+```
+### Projections
+The Projections are used for obtaining not the whole graphs of the managed objects but only its attributes or the calculated values. Projections are represented by the *CDProjection* class.
+```objc
+        CDSearchCriteria *criteria = [CDSearchCriteria criteria];
+        [criteria addProjection:[CDProjection createWithProperty:@"timeStamp"]];
+```
+After successful querying the projection results values are stored in the array for each result row in the dictionary. Simple values of the projection results are stored in the dictionary under the key of the properties name. Projection for the function is stored in the dictionary with a compound key in the following form function name:property name for example
+```objc
+        @"min:property1".
+```
+### Functions
+Functions are used in the filters or projections and represent certain transformations of the managed objects property values. In the current version it is _min_, _max_, _sum_ and _lower_
+```objc
+        CDSearchCriteria *criteria = [CDSearchCriteria criteria];
+        [criteria addFilter:[CDFilter isNotNull:@"timeStamp"]];
+        [criteria addProjection:[CDProjection createWithFunction:[CDFunction sum:@"timeStamp" resultType:NSDateAttributeType]]];
+```
+### NSFetchedResultsController
+DAO protocol contains methods for an easy creation of the NSFetchedResultsController on the basis of the given criteria:
+```objc
+        CDSearchCriteria *criteria = [CDSearchCriteria criteria];
+        ...
+        DAO *dao = [[DAOFactory factory] createRuntimeDAO:@"Event"];    
+        fetchedResultsController = [dao newFetchedResultsController:criteria sectionNameKeyPath:nil cacheName:@"Root"];
+```
+No documentation is included in this up-to-date version. Anyhow, the source code is self-explanatory and has altogether only a few hundred lines.
+
+Any questions will be answered, feel free to contact us.
