@@ -87,7 +87,7 @@
 }
 
 - (void)testInitWithEntityName {
-	CDSearchCriteria* criteria = [[CDSearchCriteria alloc] initWithEntityName:[NSString stringWithString:@"testEntity"]];
+	CDSearchCriteria* criteria = [[CDSearchCriteria alloc] initWithEntityName:@"testEntity"];
 	GHAssertNotNil(criteria, nil);
 	GHAssertNil(criteria.orders, nil);
 	GHAssertNil(criteria.filters, nil);
@@ -95,7 +95,7 @@
 }
 
 - (void)testCriteriaWithEntityName {
-	CDSearchCriteria* criteria = [CDSearchCriteria criteriaWithEntityName:[NSString stringWithString:@"testEntity"]];
+	CDSearchCriteria* criteria = [CDSearchCriteria criteriaWithEntityName:@"testEntity"];
 	GHAssertNotNil(criteria, nil);
 	GHAssertNil(criteria.orders, nil);
 	GHAssertNil(criteria.filters, nil);
@@ -104,7 +104,7 @@
 }
 
 - (void)testAddFilter {
-	CDSearchCriteria* criteria = [CDSearchCriteria criteriaWithEntityName:[NSString stringWithString:@"testEntity"]];
+	CDSearchCriteria* criteria = [CDSearchCriteria criteriaWithEntityName:@"testEntity"];
 	
 	CDFilter* filter = [[CDFilter alloc] init];
 	[criteria addFilter:filter];
@@ -127,7 +127,7 @@
 }
 
 - (void)testRemoveFilter {
-	CDSearchCriteria* criteria = [CDSearchCriteria criteriaWithEntityName:[NSString stringWithString:@"testEntity"]];
+	CDSearchCriteria* criteria = [CDSearchCriteria criteriaWithEntityName:@"testEntity"];
 	
 	CDFilter* filter = [[CDFilter alloc] init];
 	[criteria addFilter:filter];
@@ -139,7 +139,7 @@
 }
 
 - (void)testAddOrder {
-	CDSearchCriteria* criteria = [CDSearchCriteria criteriaWithEntityName:[NSString stringWithString:@"testEntity"]];
+	CDSearchCriteria* criteria = [CDSearchCriteria criteriaWithEntityName:@"testEntity"];
 	
 	CDOrder* order = [[CDOrder alloc] init];
 	[criteria addOrder:order];
@@ -151,7 +151,7 @@
 }
 
 - (void)testRemoveOrder {
-	CDSearchCriteria* criteria = [CDSearchCriteria criteriaWithEntityName:[NSString stringWithString:@"testEntity"]];
+	CDSearchCriteria* criteria = [CDSearchCriteria criteriaWithEntityName:@"testEntity"];
 	
 	CDOrder* order = [[CDOrder alloc] init];
 	[criteria addOrder:order];
@@ -162,7 +162,7 @@
 }
 
 - (void)testCreateFetchRequest_Order {
-	CDSearchCriteria* criteria = [CDSearchCriteria criteriaWithEntityName:[NSString stringWithString:@"testEntity"]];
+	CDSearchCriteria* criteria = [CDSearchCriteria criteriaWithEntityName:@"testEntity"];
 	[criteria registerInterceptor:self];
 	
 	CDOrder* order = [CDOrder order:kCDOrderDescending property:@"prop"];
@@ -178,7 +178,7 @@
 }
 
 - (void)testCreateFetchRequest_Filter {
-	CDSearchCriteria* criteria = [CDSearchCriteria criteriaWithEntityName:[NSString stringWithString:@"testEntity"]];
+	CDSearchCriteria* criteria = [CDSearchCriteria criteriaWithEntityName:@"testEntity"];
 	[criteria registerInterceptor:self];
 	
 	CDFilter* filter = [CDFilter equals:@"name" value:@"Name1"];
@@ -195,7 +195,7 @@
 }
 
 - (void)testCreateFetchRequest_FilterLike {
-	CDSearchCriteria* criteria = [CDSearchCriteria criteriaWithEntityName:[NSString stringWithString:@"testEntity"]];
+	CDSearchCriteria* criteria = [CDSearchCriteria criteriaWithEntityName:@"testEntity"];
 	[criteria registerInterceptor:self];
 	
 	CDFilter* filter = [CDFilter like:@"name" value:@"Name1"];
@@ -215,7 +215,7 @@
 }
 
 - (void)testCreateFetchRequest_FilterLikeCaseInsensitive {
-	CDSearchCriteria* criteria = [CDSearchCriteria criteriaWithEntityName:[NSString stringWithString:@"testEntity"]];
+	CDSearchCriteria* criteria = [CDSearchCriteria criteriaWithEntityName:@"testEntity"];
 	[criteria registerInterceptor:self];
 	
 	CDFilter* filter = [CDFilter like:@"name" value:@"Name1" caseSensitive:NO];
@@ -233,7 +233,7 @@
 }
 
 - (void)testReadPropertyValues {
-	CDSearchCriteria* criteria = [CDSearchCriteria criteriaWithEntityName:[NSString stringWithString:@"testEntity"]];
+	CDSearchCriteria* criteria = [CDSearchCriteria criteriaWithEntityName:@"testEntity"];
 	criteria.readPropertyValues = NO;
 	GHAssertFalse(criteria.readPropertyValues, nil);
 	
@@ -245,7 +245,7 @@
 	CDSearchCriteria* criteria = [CDSearchCriteria criteria];
 	[criteria registerInterceptor:self];
 	
-	CDProjection* projection = [[CDProjection alloc] initWithProperty:[NSString stringWithString:@"name"]];
+	CDProjection* projection = [[CDProjection alloc] initWithProperty:@"testEntity"];
 	[criteria addProjection:projection];
 	
 	GHAssertNotNil(criteria.projections, nil);
@@ -262,7 +262,7 @@
 	CDSearchCriteria* criteria = [CDSearchCriteria criteria];
 	[criteria registerInterceptor:self];
 	
-	CDProjection* projection = [CDProjection createWithProperty:[NSString stringWithString:@"name"]];
+	CDProjection* projection = [CDProjection createWithProperty:@"testEntity"];
 	[criteria addProjection:projection];
 	
 	GHAssertNotNil(criteria.projections, nil);

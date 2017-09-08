@@ -88,9 +88,7 @@
 	
 	object1 = [dao insertNewObject];
 	[object1 setName:@"abc"];
-	[object1 setIntProperty:[NSNumber numberWithInt:10]];
-	NSString *name = [object1 name];
-	
+	[object1 setIntProperty:[NSNumber numberWithInt:10]];	
 	
 	Child * child = [daoChild insertNewObject];
 	object2 = [dao insertNewObject];
